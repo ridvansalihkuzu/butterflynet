@@ -1,13 +1,23 @@
 # Automatic Separation of Laminar-Turbulent Flows on Aircraft Wings and Stabilizers via Adaptive Attention Butterfly Network
 
-The main objective of this project is to provide a reliable automation method for facilitating the localisation
-of laminar-turbulent flow regions by using recent artificial intelligence approaches. 
+# Main Objective of this Project
+Laminar-Turbulent flow is a fluid dynamics phenomenon that refers to the motion  of particles as they move through a substance. The distinction between laminar and  turbulent flow is eminently important in aerodynamics and hydrodynamics because  the type of flow has a profound impact on how momentum and heat are transferred.
+
+Specifically, detection of laminar and turbulent flow regions and transition locations in between are of crucial interest in a range of aviational applications, since
+the achievement of a fuel-efficient wing, airfoil or rotor blade design and reducing
+the instability caused by drag forces are strongly related with the way of handling
+laminar and turbulent flow exposed by the wing and blade surfaces. 
+
+As seen in Figure 1, the step 4 in the aircraft body component design workflow is the expert investigation to 
+determine the laminar-turbulent regions on the measurement images. However, those investigations might be
+entirely manual, or semi-automatic.  That is why, **The main objective of this project is to provide a reliable automation method for facilitating the localisation
+of laminar-turbulent flow regions by using recent artificial intelligence approaches** 
 
 <div class="center">
 <figure>
 <p align="center">
 <img src="demo_samples/0_workflow.png" id="FIG_feature_weights" style="width:600px"
-alt="Feature importance weights for RF regressor." />
+alt="Figure 1." />
 
 </p>
 </figure>
