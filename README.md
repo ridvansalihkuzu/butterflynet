@@ -13,7 +13,8 @@ alt="Feature importance weights for RF regressor." />
 </figure>
 <p align="center">
 <strong style="color: orange; opacity: 0.80;">
-Figure 1: Feature importance weights for RF regressor.</strong>
+Figure 1: High-level workflow for building new wings, stabilizers or blades (Please note that the workflow
+ignores some of the side steps which are out of context for this work).</strong>
 </p>
 </div>
 
