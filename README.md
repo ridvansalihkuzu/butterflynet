@@ -1,6 +1,20 @@
 # Automatic Separation of Laminar-Turbulent Flows on Aircraft Wings and Stabilizers via Adaptive Attention Butterfly Network
 
-## 1. Main Objective of this Project
+## Table of Contents
+
+   - [1. Main Objective of this Project](#sec_1)
+   - [2. Installing and Running the User Interface](#sec_2)
+   
+       - [2.a. Installing the User Interface for Automatic Laminar-Turbulent Flow Localization](#sec_2a)
+       - [2.b.    Running the User Interface for Automatic Laminar-Turbulent Flow Localization](#sec_2b)
+
+   - [3. Editing the User Interface](#sec_3)
+   - [4. Model Training and Evaluation for ButterflyNet and Other Benchmark U-NETs](#sec_4)
+      - [3.b. Running the User Interface for Automatic Laminar-Turbulent Flow Localization](#sec_3b)
+
+
+
+## 1. <a id="sec_1" /> Main Objective of this Project
 Laminar-Turbulent flow is a fluid dynamics phenomenon that refers to the motion  of particles as they move through a substance. The distinction between laminar and  turbulent flow is eminently important in aerodynamics and hydrodynamics because  the type of flow has a profound impact on how momentum and heat are transferred.
 
 Specifically, detection of laminar and turbulent flow regions and transition locations in between are of crucial interest in a range of aviational applications, since
@@ -33,10 +47,10 @@ ignores some of the side steps which are out of context for this work).</strong>
 
 
 
-## 2. Installation and Running
+## 2. <a id="sec_2" /> Installing and Running the User Interface
 
 
-### 2.a. Preparing the User Interface for Automatic Laminar-Turbulent Flow Localization
+### 2.a. <a id="sec_2a" /> Installing the User Interface for Automatic Laminar-Turbulent Flow Localization
 
 As you can see below, there is a user interface called _Annotation Window_ which can be used to handle checking the quality of the predictions for flow-localization and to make some postprocessing for removing artifacts or holes in the segmented thermographic measurement:
 
@@ -74,16 +88,16 @@ In order to prepare this user interface, there are two different options:
    ```
    This command creates an executable file [dist/annotation_window.exe](dist/annotation_window.exe)  which can launch the user interface.
 
-### 2.b. Running the User Interface for Automatic Laminar-Turbulent Flow Localization
+### 2.b. <a id="sec_2b" /> Running the User Interface for Automatic Laminar-Turbulent Flow Localization
 
 Annotation window can be launched with the following command directly inside Python:
    ```sh
-    $ cd ir-unet
+    $ cd butterfynet
     $ python -m ui.annotation_window
    ```
 or it can be run via the generated executable: 
    ```sh
-    $ cd ir-unet/ui/dist/
+    $ cd butterfynet/ui/dist/
     $ annotation_window.exe
    ```
 Thus, following screen will be opened with those commands:
@@ -93,11 +107,13 @@ Thus, following screen will be opened with those commands:
 In this interface:
 * __Input Directory__ is the directory where the images to be segmented are located
 * __Output Directory__ is the output directory where the predicted mask will be saved
-* __Model Directory__ is _'.tf'_ formatted tensorflow model obtained after standard supervised learning or supervised fine-tuning. If you do not have your trained model, you can use [modeldir/model_type_5.tf](modeldir/model_type_5.tf)
+* __Model Directory__ is _'.tf'_ formatted tensorflow model obtained after standard supervised learning or supervised fine-tuning. 
 
 When those directories are defined, __Start Processing__ button should be clicked to run the process. After that, evaluation of the prediction quality or post-processing of the predicted masks can be possible as illustrated in the video above.
 
-# 3. Editing Annotation Window UI
+
+## 3. <a id="sec_3" /> Editing the User Interface
+
 The UI can be edited or updated via _QT Designer_ if requred in certain circumstances, such as adding new functionalities to the UI. To do this:
 
 1. Install _QT Designer_:
@@ -113,21 +129,21 @@ The UI can be edited or updated via _QT Designer_ if requred in certain circumst
 4. There, you can edit [ui/gui.ui](ui/gui.ui) file and save it again with updated buttons, labels, components, etc.
 5. And finally the new Annotation Window can be compiled with the following command:
    ```sh
-    $ cd ir-unet/ui
+    $ cd butterfynet/ui
     $ sudo pyuic5 "gui.ui" -o "gui.py"
    ```
 6. After those steps, do not forget to check compatibility of [ui/gui.py](ui/gui.py) with [ui/annotation_window.py](ui/annotation_window.py).
 
 
 
-# 2. Training and Evaluation
+## 4 <a id="sec_4" /> Model Training and Evaluation for ButterflyNet and Other Benchmark U-NETs
+TODO
 
-
-### 2.a. Preparing the Training Environment
+### 4.a. Preparing the Training Environment
 For preparing the installation environment, there are two different options:
 1. OPTION: conda environment can be built by installing the dependencies listed in [docker/requirements.txt](docker/requirements.txt)
    ```sh
-   $ cd ir-unet/docker
+   $ cd butterfynet/docker
    $ pip install -r requirements.txt
    ```
 2. OPTION: docker environment can be built by running the following commands:
