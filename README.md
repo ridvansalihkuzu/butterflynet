@@ -1,6 +1,6 @@
 # Automatic Separation of Laminar-Turbulent Flows on Aircraft Wings and Stabilizers via Adaptive Attention Butterfly Network
 
-## Main Objective of this Project
+## 1. Main Objective of this Project
 Laminar-Turbulent flow is a fluid dynamics phenomenon that refers to the motion  of particles as they move through a substance. The distinction between laminar and  turbulent flow is eminently important in aerodynamics and hydrodynamics because  the type of flow has a profound impact on how momentum and heat are transferred.
 
 Specifically, detection of laminar and turbulent flow regions and transition locations in between are of crucial interest in a range of aviational applications, since
@@ -8,15 +8,15 @@ the achievement of a fuel-efficient wing, airfoil or rotor blade design and redu
 the instability caused by drag forces are strongly related with the way of handling
 laminar and turbulent flow exposed by the wing and blade surfaces. 
 
-As seen in Figure 1, the step 4 in the aircraft body component design workflow is the expert investigation to 
-determine the laminar-turbulent regions on the measurement images. However, those investigations might be
+As seen in Figure 1, Step 4 in the aircraft body component design workflow is the expert investigation to 
+determine the laminar-turbulent regions on the thermoghraphic measurement images. However, those investigations might be
 entirely manual, or semi-automatic.  That is why, **The main objective of this project is to provide a reliable automation method for facilitating the localisation
 of laminar-turbulent flow regions by using recent artificial intelligence approaches** 
 
 <div class="center">
 <figure>
 <p align="center">
-<img src="demo_samples/0_workflow.png" id="FIG_feature_weights" style="width:600px"
+<img src="demo_samples/0_workflow.png" id="FIG_1" style="width:600px"
 alt="Figure 1." />
 
 </p>
@@ -33,9 +33,97 @@ ignores some of the side steps which are out of context for this work).</strong>
 
 
 
-# 1. Installation
-WARNING: This project works best with Python 3.8
-## 1.a. Preparing the Training Environment
+## 2. Installation and Running
+
+
+### 2.a. Preparing the User Interface for Automatic Laminar-Turbulent Flow Localization
+
+As you can see below, there is a user interface called _Annotation Window_ which can be used to handle checking the quality of the predictions for flow-localization and to make some postprocessing for removing artifacts or holes in the segmented thermographic measurement:
+
+
+<div class="center">
+<figure>
+<p align="center">
+<img src="demo_samples/2_ui_sample.png" id="FIG_2"
+alt="Figure 2." />
+
+</p>
+</figure>
+<p align="center">
+<strong style="color: orange; opacity: 0.80;">
+Figure 2: Annotation Window for Automatic Flow Localization on Thermographic Measurements.</strong>
+</p>
+</div>
+
+&nbsp;
+<br />
+
+
+
+In order to prepare this user interface, there are two different options:
+
+1. OPTION: The following commands can be used directly to run the python file:
+   ```sh
+    $ cd butterfynet
+    $ python -m ui.annotation_window
+   ```
+2. OPTION: An executable file can be generated and utilized independently with the following command:
+   ```sh
+   $ cd butterfynet/ui
+   $ pyinstaller  --onefile  annotation_window.py --hidden-import 'skimage.filters.rank.core_cy_3d'
+   ```
+   This command creates an executable file [dist/annotation_window.exe](dist/annotation_window.exe)  which can launch the user interface.
+
+### 2.b. Running the User Interface for Automatic Laminar-Turbulent Flow Localization
+
+Annotation window can be launched with the following command directly inside Python:
+   ```sh
+    $ cd ir-unet
+    $ python -m ui.annotation_window
+   ```
+or it can be run via the generated executable: 
+   ```sh
+    $ cd ir-unet/ui/dist/
+    $ annotation_window.exe
+   ```
+Thus, following screen will be opened with those commands:
+![ui, annotation_window](demo_samples/1_ui.gif)
+
+
+In this interface:
+* __Input Directory__ is the directory where the images to be segmented are located
+* __Output Directory__ is the output directory where the predicted mask will be saved
+* __Model Directory__ is _'.tf'_ formatted tensorflow model obtained after standard supervised learning or supervised fine-tuning. If you do not have your trained model, you can use [modeldir/model_type_5.tf](modeldir/model_type_5.tf)
+
+When those directories are defined, __Start Processing__ button should be clicked to run the process. After that, evaluation of the prediction quality or post-processing of the predicted masks can be possible as illustrated in the video above.
+
+# 3. Editing Annotation Window UI
+The UI can be edited or updated via _QT Designer_ if requred in certain circumstances, such as adding new functionalities to the UI. To do this:
+
+1. Install _QT Designer_:
+    ```sh
+    $ pip install PyQt5Designer
+   ```
+   
+2. Run _QT Designer_:
+    ```sh
+    $ sudo designer
+   ```
+3. On the opened editing tool, you can load [ui/gui.ui](ui/gui.ui) file to see the drag-drop functionalities of the existing interface
+4. There, you can edit [ui/gui.ui](ui/gui.ui) file and save it again with updated buttons, labels, components, etc.
+5. And finally the new Annotation Window can be compiled with the following command:
+   ```sh
+    $ cd ir-unet/ui
+    $ sudo pyuic5 "gui.ui" -o "gui.py"
+   ```
+6. After those steps, do not forget to check compatibility of [ui/gui.py](ui/gui.py) with [ui/annotation_window.py](ui/annotation_window.py).
+
+
+
+# 2. Training and Evaluation
+
+
+### 2.a. Preparing the Training Environment
 For preparing the installation environment, there are two different options:
 1. OPTION: conda environment can be built by installing the dependencies listed in [docker/requirements.txt](docker/requirements.txt)
    ```sh
@@ -47,26 +135,8 @@ For preparing the installation environment, there are two different options:
    $ cd ir-unet/docker
    $ docker build -t tensor_image .
    ```
-## 1.b. Preparing the User Interface for Labelling
+   
 
-As you can see below, there is a user interface called _Annotation Window_ which can be used to handle checking the quality of the predicted labels and to make some postprocessing for removing artifacts or holes in the predicted label:
-![ui, annotation_window](demo_samples/2_ui_sample.png)
-
-In order to prepare this user interface, there are two different options:
-
-1. OPTION: The following commands can be used directly to run the python file:
-   ```sh
-    $ cd ir-unet
-    $ python -m ui.annotation_window
-   ```
-2. OPTION: An executable file can be generated and utilized independently with the following command:
-   ```sh
-   $ cd ir-unet/ui
-   $ pyinstaller  --onefile  annotation_window.py --hidden-import 'skimage.filters.rank.core_cy_3d'
-   ```
-   This command creates an executable file [dist/annotation_window.exe](dist/annotation_window.exe)  which can launch the user interface.
-
-# 2. Training and Evaluation
 For training and evaluation there are multiple options as described below:
 1. A supervised model for the binary segmentation can be directly trained if there exist sufficient number of input and mask images for training.
 2. If the labelled data is not sufficient for model generalization, causing overfitting or high bias & variance between training and validation:
@@ -176,46 +246,3 @@ Here, the parameters have the following roles:
 * __WEIGHT_FILE__: a weights file for the model initialization with pretrained weights; it should NOT be _--weights 'None'_ 
 * __SELF_SUPERVISED__: it determines if evaluation mode is for supervised or self-supervised learning; FALSE for supervised learning
 
-## 2.d. Evaluation via Annotation Window
-
-Annotation window can be launched with the following command directly inside Python:
-   ```sh
-    $ cd ir-unet
-    $ python -m ui.annotation_window
-   ```
-or it can be run via the generated executable: 
-   ```sh
-    $ cd ir-unet/ui/dist/
-    $ annotation_window.exe
-   ```
-Thus, following screen will be opened with those commands:
-![ui, annotation_window](demo_samples/1_ui.gif)
-
-
-In this interface:
-* __Input Directory__ is the directory where the images to be segmented are located
-* __Output Directory__ is the output directory where the predicted mask will be saved
-* __Model Directory__ is _'.tf'_ formatted tensorflow model obtained after standard supervised learning or supervised fine-tuning. If you do not have your trained model, you can use [modeldir/model_type_5.tf](modeldir/model_type_5.tf)
-
-When those directories are defined, __Start Processing__ button should be clicked to run the process. After that, evaluation of the prediction quality or post-processing of the predicted masks can be possible as illustrated in the video above.
-
-# 3. Editing Annotation Window UI
-The UI can be edited or updated via _QT Designer_ if requred in certain circumstances, such as adding new functionalities to the UI. To do this:
-
-1. Install _QT Designer_:
-    ```sh
-    $ pip install PyQt5Designer
-   ```
-   
-2. Run _QT Designer_:
-    ```sh
-    $ sudo designer
-   ```
-3. On the opened editing tool, you can load [ui/gui.ui](ui/gui.ui) file to see the drag-drop functionalities of the existing interface
-4. There, you can edit [ui/gui.ui](ui/gui.ui) file and save it again with updated buttons, labels, components, etc.
-5. And finally the new Annotation Window can be compiled with the following command:
-   ```sh
-    $ cd ir-unet/ui
-    $ sudo pyuic5 "gui.ui" -o "gui.py"
-   ```
-6. After those steps, do not forget to check compatibility of [ui/gui.py](ui/gui.py) with [ui/annotation_window.py](ui/annotation_window.py).
