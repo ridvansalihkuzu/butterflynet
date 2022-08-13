@@ -6,7 +6,7 @@ of laminar-turbulent flow regions by using recent artificial intelligence approa
 <div class="center">
 <figure>
 <p align="center">
-<img src="demo_samples/0_workflow.png" id="FIG_feature_weights" style="width:500px"
+<img src="demo_samples/0_workflow.png" id="FIG_feature_weights" style="width:600px"
 alt="Feature importance weights for RF regressor." />
 
 </p>
