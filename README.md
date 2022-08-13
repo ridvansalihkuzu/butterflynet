@@ -1,13 +1,26 @@
-#Automatic Separation of Laminar-Turbulent Flows on Aircraft Wings and Stabilizers via Adaptive Attention Butterfly Network
+# Automatic Separation of Laminar-Turbulent Flows on Aircraft Wings and Stabilizers via Adaptive Attention Butterfly Network
 
 The main objective of this project is to provide a reliable automation method for facilitating the localisation
 of laminar-turbulent flow regions by using recent artificial intelligence approaches. 
 
-![smiley](demo_samples/0_workflow.png)
-img[alt="smiley"] { 
-  max-width:  20px; 
-  display: block;
-}
+<div class="center">
+<figure>
+<p align="center">
+<img src="demo_samples/0_workflow.png" id="FIG_feature_weights"
+alt="Feature importance weights for RF regressor." />
+
+</p>
+</figure>
+<p align="center">
+<strong style="color: orange; opacity: 0.80;">
+Figure 1: Feature importance weights for RF regressor.</strong>
+</p>
+</div>
+
+&nbsp;
+<br />
+
+
 
 # 1. Installation
 WARNING: This project works best with Python 3.8
