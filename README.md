@@ -1,4 +1,4 @@
-# Automatic Separation of Laminar-Turbulent Flows on Aircraft Wings and Stabilizers via Adaptive Attention Butterfly Network
+# Adaptive Attention Butterfly Network for Laminar-Turbulent Flow Segmentation
 ![annotation_window](docs/1b_ui.gif)
 ## Table of Contents
 
