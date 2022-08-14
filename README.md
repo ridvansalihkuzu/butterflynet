@@ -108,6 +108,9 @@ Thus, following screen will be opened with those commands:
 <img src="demo_samples/1b_ui.gif" width="128"/>
 
 
+![grab-landing-page](https://github.com/winnie1312/grab/blob/master/grab-landingpage-winnie.gif)
+
+
 In this interface:
 * __Input Directory__ is the directory where the images to be segmented are located
 * __Output Directory__ is the output directory where the predicted mask will be saved
