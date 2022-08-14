@@ -34,7 +34,7 @@ of laminar-turbulent flow regions by using recent artificial intelligence approa
 <div class="center">
 <figure>
 <p align="center">
-<img src="docs/0_workflow.png" id="FIG_1" style="width:600px"
+<img src="0_workflow.png" id="FIG_1" style="width:600px"
 alt="Figure 1." />
 
 </p>
@@ -62,7 +62,7 @@ As you can see below, there is a user interface called _Annotation Window_ which
 <div class="center">
 <figure>
 <p align="center">
-<img src="docs/2_ui_sample.png" id="FIG_2"
+<img src="2_ui_sample.png" id="FIG_2"
 alt="Figure 2." />
 
 </p>
@@ -89,7 +89,7 @@ In order to prepare this user interface, there are two different options:
    $ cd butterflynet/ui
    $ pyinstaller  --onefile  annotation_window.py --hidden-import 'skimage.filters.rank.core_cy_3d'
    ```
-   This command creates an executable file [dist/annotation_window.exe](dist/annotation_window.exe)  which can launch the user interface.
+   This command creates an executable file [dist/annotation_window.exe](../dist/annotation_window.exe)  which can launch the user interface.
 
 ### 2.b. <a id="sec_2b" /> Running the User Interface for Automatic Laminar-Turbulent Flow Localization
 
@@ -148,7 +148,7 @@ in case of using cascaded networks as similar to our proposed **ButterflyNet**.
 <div class="center">
 <figure>
 <p align="center">
-<img src="docs/3_attention_butterfly_net.png" id="FIG_3" style="width:600px"
+<img src="3_attention_butterfly_net.png" id="FIG_3" style="width:600px"
 alt="Figure 3." />
 
 </p>
@@ -178,17 +178,17 @@ In this project, the following benchmark U-Net models have been compared with th
 
 **Regarding the Experimental Part of the Project:**
  
-   - In folder [experimental/](experimental/), you can find:
+   - In folder [experimental/](../experimental/), you can find:
       - [main.py](../experimental/main.py) as **the main training script** to compare different U-Net architectures,
       - [model_selector.py](../experimental/model_selector.py) for orchestrating the U-Net model selection and initialisation,
       - [custom_data_generator.py](../experimental/custom_data_generator.py) for data reading for training and inference,
    - In folder **[model_zoo/adaptive_net_family](../model_zoo/adaptive_net_family)**, you can find the proposed **ButterflyNet** and its utilities,
-   - In folder **[model_zoo](model_zoo/)**, you can find also some other U-Net architectures applied for benchmark comparison in this work,
+   - In folder **[model_zoo](../model_zoo/)**, you can find also some other U-Net architectures applied for benchmark comparison in this work,
    - The U-Net architectures not found in these folders were inherited directly from the python package [keras-unet-collection](https://github.com/yingkaisha/keras-unet-collection),
 
 **Regarding the Stable Release of the Project:**
 
-  - In folder [general/](general/), you can find:
+  - In folder [general/](../general/), you can find:
       - [main.py](../general/main.py) as **the main training script** to compare different U-Net architectures,
       - [model_zoo.py](../general/model_zoo.py) for orchestrating the U-Net model selection and initialisation,
       - [custom_data_generator.py](../general/custom_data_generator.py) for data reading for training and inference,
@@ -272,7 +272,7 @@ For training the evaluation, there are three different options:
 <div class="center">
 <figure>
 <p align="center">
-<img src="docs/4_sim_clr.png" id="FIG_4" style="width:600px"
+<img src="4_sim_clr.png" id="FIG_4" style="width:600px"
 alt="Figure 4." />
 
 </p>
