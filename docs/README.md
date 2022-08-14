@@ -1,5 +1,5 @@
 # Adaptive Attention Butterfly Network for Laminar-Turbulent Flow Segmentation
-![annotation_window](docs/1b_ui.gif)
+![annotation_window](1b_ui.gif)
 ## Table of Contents
 
    - [1. Main Objective of this Project](#sec_1)
@@ -123,13 +123,13 @@ The UI can be edited or updated via _QT Designer_ if requred in certain circumst
  2. Run _QT Designer_:
      ```sh 
      $ sudo designer
- 3. On the opened editing tool, you can load [ui/gui.ui](ui/gui.ui) file to see the drag-drop functionalities of the existing interface.
- 4. There, you can edit [ui/gui.ui](ui/gui.ui) file and save it again with updated buttons, labels, components, etc.
+ 3. On the opened editing tool, you can load [ui/gui.ui](../ui/gui.ui) file to see the drag-drop functionalities of the existing interface.
+ 4. There, you can edit [ui/gui.ui](../ui/gui.ui) file and save it again with updated buttons, labels, components, etc.
  5. And finally the new Annotation Window can be compiled with the following command:
     ```sh
     $ cd butterflynet/ui
     $ sudo pyuic5 "gui.ui" -o "gui.py"
- 6. After those steps, do not forget to check compatibility of [ui/gui.py](ui/gui.py) with [ui/annotation_window.py](ui/annotation_window.py).
+ 6. After those steps, do not forget to check compatibility of [ui/gui.py](../ui/gui.py) with [ui/annotation_window.py](../ui/annotation_window.py).
 
 
 
@@ -179,30 +179,30 @@ In this project, the following benchmark U-Net models have been compared with th
 **Regarding the Experimental Part of the Project:**
  
    - In folder [experimental/](experimental/), you can find:
-      - [main.py](experimental/main.py) as **the main training script** to compare different U-Net architectures,
-      - [model_selector.py](experimental/model_selector.py) for orchestrating the U-Net model selection and initialisation,
-      - [custom_data_generator.py](experimental/custom_data_generator.py) for data reading for training and inference,
-   - In folder **[model_zoo/adaptive_net_family](model_zoo/adaptive_net_family)**, you can find the proposed **ButterflyNet** and its utilities,
+      - [main.py](../experimental/main.py) as **the main training script** to compare different U-Net architectures,
+      - [model_selector.py](../experimental/model_selector.py) for orchestrating the U-Net model selection and initialisation,
+      - [custom_data_generator.py](../experimental/custom_data_generator.py) for data reading for training and inference,
+   - In folder **[model_zoo/adaptive_net_family](../model_zoo/adaptive_net_family)**, you can find the proposed **ButterflyNet** and its utilities,
    - In folder **[model_zoo](model_zoo/)**, you can find also some other U-Net architectures applied for benchmark comparison in this work,
    - The U-Net architectures not found in these folders were inherited directly from the python package [keras-unet-collection](https://github.com/yingkaisha/keras-unet-collection),
 
 **Regarding the Stable Release of the Project:**
 
   - In folder [general/](general/), you can find:
-      - [main.py](general/main.py) as **the main training script** to compare different U-Net architectures,
-      - [model_zoo.py](general/model_zoo.py) for orchestrating the U-Net model selection and initialisation,
-      - [custom_data_generator.py](general/custom_data_generator.py) for data reading for training and inference,
-      - [custom_losses.py](general/custom_losses.py) for defining some segmentation loss functions, customized for this work, or not included in *[tensorflow/keras](https://www.tensorflow.org/api_docs/python/tf/keras/losses)* framework,
-      - [custom_metrics.py](general/custom_metrics.py) for defining some segmentation performance metrics, customized for this work, or not included in *[tensorflow/keras](https://www.tensorflow.org/api_docs/python/tf/keras/metrics)* framework,
-      - [post_processing.py](general/post_processing.py) for some image processing functions utilized in the user interface,
-      - [utils.py](general/utils.py) for defining general utility fucntions applied during training and inference on U-Nets,
+      - [main.py](../general/main.py) as **the main training script** to compare different U-Net architectures,
+      - [model_zoo.py](../general/model_zoo.py) for orchestrating the U-Net model selection and initialisation,
+      - [custom_data_generator.py](../general/custom_data_generator.py) for data reading for training and inference,
+      - [custom_losses.py](../general/custom_losses.py) for defining some segmentation loss functions, customized for this work, or not included in *[tensorflow/keras](https://www.tensorflow.org/api_docs/python/tf/keras/losses)* framework,
+      - [custom_metrics.py](../general/custom_metrics.py) for defining some segmentation performance metrics, customized for this work, or not included in *[tensorflow/keras](https://www.tensorflow.org/api_docs/python/tf/keras/metrics)* framework,
+      - [post_processing.py](../general/post_processing.py) for some image processing functions utilized in the user interface,
+      - [utils.py](../general/utils.py) for defining general utility fucntions applied during training and inference on U-Nets,
 
       
 
 ## 5. <a id="sec_5" /> Preparing the Training Environment
 For preparing the installation environment, there are two different options:
 
-1. OPTION: conda environment can be built by installing the dependencies listed in [docker/requirements.txt](docker/requirements.txt)
+1. OPTION: conda environment can be built by installing the dependencies listed in [docker/requirements.txt](../docker/requirements.txt)
    ```sh
    $ cd butterflynet/docker
    $ pip install -r requirements.txt
@@ -226,7 +226,7 @@ Those procedures will be detailed below:
 ## 6. <a id="sec_6" /> Supervised Learning for Flow Segmentation
 
 For training the evaluation, there are three different options:
-1. OPTION: [general/main.py](general/main.py) script can be called for training as illustrated in the following command:
+1. OPTION: [general/main.py](../general/main.py) script can be called for training as illustrated in the following command:
     ```sh
    $ cd butterflynet
    $ python -m general.main  --learning-rate 0.000025 --batch-size 64 --num-augment 8 --out-dir modeldir/supervised/ --pair-csv dataset/supervised/fileNames.txt --model-type 6 --data-dir dataset/supervised/image/ --label-dir dataset/supervised/mask/
@@ -251,7 +251,7 @@ For training the evaluation, there are three different options:
    * __SELF_SUPERVISED__: it determines if training mode is supervised or self-supervised; FALSE for standard supervised learning
    * __SELF_RECONSTRUCT__: it determines if self-supervised learning is based on SimCLR or same-input reconstruction; FALSE for standard supervised learning
    * __TEMPERATURE__: it is a self-supervised learning parameter for cost calculation, not used in the standard supervised learning
-2. OPTION: [general/main.py](general/main.py) script can be called in a bash file as can be seen in [script_train_supervised_general.bat](script_train_supervised_general.bat):
+2. OPTION: [general/main.py](../general/main.py) script can be called in a bash file as can be seen in [script_train_supervised_general.bat](../script_train_supervised_general.bat):
    ```sh
    $ cd butterflynet
    $ bash script_train_supervised_general.bat
