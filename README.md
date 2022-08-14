@@ -299,9 +299,9 @@ either same or different inputs by random switching .</strong>
 
 The aim of the self-supervised learning is to mitigate the lack of labelled data. In case of sufficient number of labelled data, this step is not necessary. However, when there is an overfitting issue or similars due to the lack of data, this approach benefits from:
 
-- either self-supervised learning based on SimCLR approach as illustrated in [Figure 4](#FIG_4),
+1. either self-supervised learning based on SimCLR approach as illustrated in [Figure 4](#FIG_4),
 
-- or self-supervised learning based on reconstruction of same image at the output.
+2. or self-supervised learning based on reconstruction of same image at the output.
 
 After the self-supervised learning on the unlabelled data, fine-tuning is made with the labelled data. The details of these steps are as follows:
 
