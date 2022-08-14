@@ -30,7 +30,6 @@ of laminar-turbulent flow regions by using recent artificial intelligence approa
 
 
 ![annotation_window](demo_samples/1b_ui.gif)
-
 <div class="center">
 <figure>
 <p align="center">
