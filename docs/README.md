@@ -522,37 +522,19 @@ model complexity.</strong>
 <br />
 
 
-<div class="center">
-<figure>
-<p align="center">
-<img src="8_benchmark.png" id="FIG_11" style="width:500px"
-alt="Figure 11." />
-
-</p>
-</figure>
-<p align="center">
-<strong style="color: orange; opacity: 0.80;">
-Figure 11: Sørensen-Dice coefficient vs. computational complexity where G-FLOPs stands for the number
-floating-point operations required for a single forward pass, and the size of each ball corresponds to the
-model complexity.</strong>
-</p>
-</div>
-
-&nbsp;
-<br />
 
 
 <div class="center">
 <figure>
 <p align="center">
 <img src="6_results.png" id="FIG_12" style="width:800px"
-alt="Figure 12." />
+alt="Figure 11." />
 
 </p>
 </figure>
 <p align="center">
 <strong style="color: orange; opacity: 0.80;">
-Figure 12: Qualitative comparison of benchmark architectures. In the ground truth, the laminar flow regions
+Figure 11: Qualitative comparison of benchmark architectures. In the ground truth, the laminar flow regions
 are denoted as white (positive condition), while the rest is black (negative condition). Similarly, in the
 comparison of architectures, TPs are white, TNs are black, FPs are magenta and FNs are cyan.</strong>
 </p>
@@ -577,13 +559,13 @@ automatically localising the separation boundary of laminar flow from turbulent 
 <figure>
 <p align="center">
 <img src="5_results.png" id="FIG_13" style="width:800px"
-alt="Figure 13." />
+alt="Figure 12." />
 
 </p>
 </figure>
 <p align="center">
 <strong style="color: orange; opacity: 0.80;">
-Figure 13: Qualitative comparison of WING1 and WING2 in terms of flow segmentation. Note that WING2
+Figure 12: Qualitative comparison of WING1 and WING2 in terms of flow segmentation. Note that WING2
 has generated less artefacts than WING1 where the false positives are magenta and false negatives are cyan.</strong>
 </p>
 </div>
