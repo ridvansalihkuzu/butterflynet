@@ -228,6 +228,7 @@ Those procedures will be detailed below:
 
 
 ## 6. <a id="sec_6" /> Supervised Learning for Flow Segmentation
+
 1. OPTION: [general/main.py](general/main.py) script can be called for training as illustrated in the following command:
    ```sh
    $ cd butterfynet
