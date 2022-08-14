@@ -3,7 +3,7 @@
 You can use the [editor on GitHub](https://github.com/ridvansalihkuzu/butterflynet/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-![grab-landing-page](https://github.com/winnie1312/grab/blob/master/grab-landingpage-winnie.gif)
+![annotation_window](demo_samples/1b_ui.gif)
 
 ### Markdown
 
@@ -11,7 +11,7 @@ Markdown is a lightweight and easy-to-use syntax for styling your writing. It in
 
 ```markdown
 Syntax highlighted code block
-![annotation_window](demo_samples/1b_ui.gif)
+
 
 <img src="demo_samples/1b_ui.gif" width="128"/>
 # Header 1
