@@ -527,7 +527,7 @@ model complexity.</strong>
 <div class="center">
 <figure>
 <p align="center">
-<img src="6_results.png" id="FIG_12" style="width:800px"
+<img src="6_results.png" id="FIG_11" style="width:800px"
 alt="Figure 11." />
 
 </p>
@@ -550,7 +550,7 @@ Since the ButterflyNet has comprised two cascaded networks,  *WING1* and *WING2*
 quantitative comparison among the outputs of them has been done to examine if the cascading had a positive impact 
 in flow segmentation.  
 
-The qualitative analysis in [Figure 13](#FIG_13) verifies that masking the input with the output of *WING1* 
+The qualitative analysis in [Figure 12](#FIG_12) verifies that masking the input with the output of *WING1* 
 and later feeding it into *WING2* could eliminate some unwanted artefacts when 
 automatically localising the separation boundary of laminar flow from turbulent flow.
 
@@ -558,7 +558,7 @@ automatically localising the separation boundary of laminar flow from turbulent 
 <div class="center">
 <figure>
 <p align="center">
-<img src="5_results.png" id="FIG_13" style="width:800px"
+<img src="5_results.png" id="FIG_12" style="width:800px"
 alt="Figure 12." />
 
 </p>
