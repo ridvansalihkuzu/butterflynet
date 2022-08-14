@@ -232,7 +232,8 @@ Those procedures will be detailed below:
 For training the evaluation, there are three different options:
 
 1. OPTION: [general/main.py](general/main.py) script can be called for training as illustrated in the following command:
-   ```sh
+   
+    ```sh
    $ cd butterfynet
    $ python -m general.main  --learning-rate 0.000025 --batch-size 64 --num-augment 8 --out-dir modeldir/supervised/ --pair-csv dataset/supervised/fileNames.txt --model-type 6 --data-dir dataset/supervised/image/ --label-dir dataset/supervised/mask/
    ```
