@@ -1,5 +1,8 @@
 # Adaptive Attention Butterfly Network for Laminar-Turbulent Flow Segmentation
 ![annotation_window](1b_ui.gif)
+
+The project website: [https://ridvansalihkuzu.github.io/butterflynet/](https://ridvansalihkuzu.github.io/butterflynet/)
+
 ## Table of Contents
 
    - [1. Main Objective of this Project](#sec_1)
@@ -13,8 +16,8 @@
    - [7. Self-supervised Learning and Supervised Fine-tuning](#sec_7)
        - [7.a. Self-supervised Learning](#sec_7a)
        - [7.b. Supervised Fine-tuning](#sec_7b)
-       - [7.c. Standalone Evaluation on Terminal](#sec_7c)
-    
+       - [7.c. Standalone Evaluation on Terminal](#sec_7c)     
+   - [8. Further Details About Laminar-turbulent Flow Segmentation](#sec_8)
     
 
 
@@ -341,3 +344,88 @@ Here, the parameters have the following roles:
 * __WEIGHT_FILE__: a weights file for the model initialization with pretrained weights; it should NOT be _--weights 'None'_ 
 * __SELF_SUPERVISED__: it determines if evaluation mode is for supervised or self-supervised learning; FALSE for supervised learning
 
+## 8. <a id="sec_8" /> Further Details About Laminar-Turbulent Flow Segmentation
+
+Laminar-Turbulent flow is a fluid dynamics phenomenon that refers to the motion of particles as they move through a substance.
+The distinction between laminar and turbulent flow is eminently important in aerodynamics and hydrodynamics because the type 
+of flow has a profound impact on how momentum and heat are transferred. In principle, when particles of fluid have a property 
+of a streamlined flow, and they follow a smooth path without interfering with one another, it is called *laminar flow*. 
+On the other hand,  *turbulent flow* means the chaotic and rough movement of particles through a substance 
+, such as mixing and shifting between the flow layers and whirlpool-like patterns as illustrated in [Figure 5](#FIG_5).
+
+<div class="center">
+<figure>
+<p align="center">
+<img src="11_laminar_turbulent_flow.png" id="FIG_5" style="width:600px"
+alt="Figure 5." />
+
+</p>
+</figure>
+<p align="center">
+<strong style="color: orange; opacity: 0.80;">
+Figure 5: Airflow over a wing exhibiting transition from laminar to turbulent.</strong>
+</p>
+</div>
+
+&nbsp;
+<br />
+
+
+### 8.a. <a id="sec_8a" /> Thermoghraphic Measurement for Observing Flows on the Body of Aircraft
+
+Measurement setups may differ from use case  to use case. However, at least three things are shared between all setups: i) a surface,
+ii) an airflow to which the surface is exposed to, and iii) at minimum, one IR camera  observing the surface.
+
+A simplified laminar-turbulent flow measurement setup applied in the variety of our experiments can be described as follows:  
+A surface of an object is observed by an IR camera. The camera together with its optical system (lenses) spans a field 
+of view (FoV) onto the object surface. Everything on this FoV is visible within the recorded image. As camera and object 
+have their own reference system, coordinate systems for the object and camera exist. Modern IR cameras work with a focal 
+plane array (FPA) being the sensor, hence the image plane is put into the sensor plane. Perpendicularly from the camera 
+sensor plane, a view axis can be defined, which is the optical axis. The intersection of the optical axis with the surface 
+is the focal point of the camera. Reference markers located in the FoV allow the image transformation from image to object 
+coordinates. Since the work presented here is based on images in the aerodynamic field, the object of interest is exposed 
+to a flow with a dedicated flow direction. Eventually, a laminar and turbulent region may develop inside the FoV if the 
+object (flight-wings and vertical stabilizer in our experiments) is exposed to a flow. 
+
+<div class="center">
+<figure>
+<p align="center">
+<img src="9_measurement_setup.png" id="FIG_6" style="width:600px"
+alt="Figure 6." />
+
+</p>
+</figure>
+<p align="center">
+<strong style="color: orange; opacity: 0.80;">
+Figure 6: A simplified laminar-turbulent flow measurement setup.</strong>
+</p>
+</div>
+
+&nbsp;
+<br />
+
+To Elaborate on one of the particular test cases, for [AfLoNext]( http://www.aflonext.eu/) project, 
+two IR cameras had been installed into the horizontal tail plane (HTP) of the test aircraft, which was an AIRBUS A320. 
+One
+IR camera was installed at the port (left hand) and one at the starboard (right hand)
+side of the aircraft. Both cameras were orientated in such a way that they observed
+a ROI at the vertical tail plane (VTP). As a consequence, IR images could be taken
+during flight simultaneously both from the left- and right-hand side of the VTP, as
+illustrated in [Figure 7](#FIG_7)
+
+<div class="center">
+<figure>
+<p align="center">
+<img src="10_measurement_setup.png" id="FIG_7" style="width:600px"
+alt="Figure 7." />
+
+</p>
+</figure>
+<p align="center">
+<strong style="color: orange; opacity: 0.80;">
+Figure 7: AFLoNext, digital mockup field of view (FoV) study using 20° lens.</strong>
+</p>
+</div>
+
+&nbsp;
+<br />
