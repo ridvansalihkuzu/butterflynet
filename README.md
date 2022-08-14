@@ -1,5 +1,5 @@
 # Automatic Separation of Laminar-Turbulent Flows on Aircraft Wings and Stabilizers via Adaptive Attention Butterfly Network
-
+![annotation_window](demo_samples/1b_ui.gif)
 ## Table of Contents
 
    - [1. Main Objective of this Project](#sec_1)
@@ -103,9 +103,8 @@ or it can be run via the generated executable:
 Thus, following screen will be opened with those commands:
 
 
-![annotation_window](demo_samples/1b_ui.gif)
 
-<img src="demo_samples/1b_ui.gif" width="128"/>
+
 
 
 
