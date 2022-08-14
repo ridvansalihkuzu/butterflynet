@@ -105,6 +105,8 @@ Thus, following screen will be opened with those commands:
 
 ![annotation_window](demo_samples/1b_ui.gif)
 
+<img src="demo_samples/1b_ui.gif" width="128"/>
+
 
 In this interface:
 * __Input Directory__ is the directory where the images to be segmented are located
