@@ -449,7 +449,7 @@ laminar flow area appears darker, and in another part, it appears brighter than 
 <div class="center">
 <figure>
 <p align="center">
-<img src="12_labelled_measurements.png" id="FIG_8" style="width:800px"
+<img src="12_labelled_measurments.png" id="FIG_8" style="width:800px"
 alt="Figure 8." />
 
 </p>
@@ -500,7 +500,7 @@ efficient than 3 of the benchmarks with 24:64 million parameters.
 <div class="center">
 <figure>
 <p align="center">
-<img src="8_benchmark.png" id="FIG_10" style="width:800px"
+<img src="8_benchmark.png" id="FIG_10" style="width:500px"
 alt="Figure 10." />
 
 </p>
