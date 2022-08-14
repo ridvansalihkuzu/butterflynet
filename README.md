@@ -229,6 +229,8 @@ Those procedures will be detailed below:
 
 ## 6. <a id="sec_6" /> Supervised Learning for Flow Segmentation
 
+For training the evaluation, there are three different options:
+
 1. OPTION: [general/main.py](general/main.py) script can be called for training as illustrated in the following command:
    ```sh
    $ cd butterfynet
@@ -256,7 +258,7 @@ Those procedures will be detailed below:
    * __TEMPERATURE__: it is a self-supervised learning parameter for cost calculation, not used in the standard supervised learning
    
 
-2. OPTION: [general/main.py](general/main.py) script can be called in a bash file as can be seen in [_script_train_supervised.bat](_script_train_supervised.bat):
+2. OPTION: [general/main.py](general/main.py) script can be called in a bash file as can be seen in [_script_train_supervised_general.bat](_script_train_supervised_general.bat):
    ```sh
    $ cd butterfynet
    $ bash _script_train_supervised_general.bat
@@ -315,7 +317,7 @@ Considering those parameters, a sample call for the self-supervised learning is 
    ```
    or, in case of Docker usage:
    ```sh
-   $ sudo docker run -it --init --rm --shm-size=32772m --gpus '"device=1,2,3,4"' -v "/<YOUR-HOME-DIR>/ir-unet/:/app" tensor_image python -m general.main  --model-type 6 --temperature 0.01 --learning-rate 0.000100 --batch-size 64 --num-epochs 120 --num-augment 1 --self-supervised --out-dir modeldir/unsupervised/ --data-dir dataset/unsupervised/image/ --label-dir dataset/unsupervised/image/
+   $ sudo docker run -it --init --rm --shm-size=32772m --gpus '"device=1,2,3,4"' -v "/<YOUR-HOME-DIR>/butterfynet/:/app" tensor_image python -m general.main  --model-type 6 --temperature 0.01 --learning-rate 0.000100 --batch-size 64 --num-epochs 120 --num-augment 1 --self-supervised --out-dir modeldir/unsupervised/ --data-dir dataset/unsupervised/image/ --label-dir dataset/unsupervised/image/
    ```
 ### 7.b. <a id="sec_7b" /> Supervised Fine-tuning
 The fine-tuning followed by self-supervised learning should be done as follows:
@@ -331,7 +333,7 @@ Thus, a sample call for fine-tuning on the labelled data:
    ```
    or, in case of Docker usage:
    ```sh
-   $ sudo docker run -it --init --rm --shm-size=32772m --gpus '"device=1,2,3,4"' -v "/<YOUR-HOME-DIR>/ir-unet/:/app" tensor_image python -m general.main  --learning-rate 0.000025 --batch-size 64 --num-augment 8 --out-dir modeldir/supervised/ --pair-csv dataset/supervised/fileNames.txt --model-type 6 --data-dir dataset/supervised/image/ --label-dir dataset/supervised/mask/ --weight-file modeldir/unsupervised/model_best_lr_5e-05_ty_6_ba_64.tf
+   $ sudo docker run -it --init --rm --shm-size=32772m --gpus '"device=1,2,3,4"' -v "/<YOUR-HOME-DIR>/butterfynet/:/app" tensor_image python -m general.main  --learning-rate 0.000025 --batch-size 64 --num-augment 8 --out-dir modeldir/supervised/ --pair-csv dataset/supervised/fileNames.txt --model-type 6 --data-dir dataset/supervised/image/ --label-dir dataset/supervised/mask/ --weight-file modeldir/unsupervised/model_best_lr_5e-05_ty_6_ba_64.tf
 
    ```
 
