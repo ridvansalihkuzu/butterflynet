@@ -356,7 +356,7 @@ On the other hand,  *turbulent flow* means the chaotic and rough movement of par
 <div class="center">
 <figure>
 <p align="center">
-<img src="11_laminar_turbulent_flow.png" id="FIG_5" style="width:600px"
+<img src="11_laminar_turbulent_flow.png" id="FIG_5" style="width:500px"
 alt="Figure 5." />
 
 </p>
@@ -390,7 +390,7 @@ object (flight-wings and vertical stabilizer in our experiments) is exposed to a
 <div class="center">
 <figure>
 <p align="center">
-<img src="9_measurement_setup.png" id="FIG_6" style="width:600px"
+<img src="9_measurement_setup.png" id="FIG_6" style="width:500px"
 alt="Figure 6." />
 
 </p>
@@ -416,7 +416,7 @@ illustrated in [Figure 7](#FIG_7)
 <div class="center">
 <figure>
 <p align="center">
-<img src="10_measurement_setup.png" id="FIG_7" style="width:600px"
+<img src="10_measurement_setup.png" id="FIG_7" style="width:500px"
 alt="Figure 7." />
 
 </p>
