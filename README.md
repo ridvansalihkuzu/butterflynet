@@ -29,7 +29,7 @@ laminar and turbulent flow exposed by the wing and blade surfaces.
 As seen in Figure 1, Step 4 in the aircraft body component design workflow is the expert investigation to 
 determine the laminar-turbulent regions on the thermoghraphic measurement images. However, those investigations might be
 entirely manual, or semi-automatic.  That is why, **The main objective of this project is to provide a reliable automation method for facilitating the localisation
-of laminar-turbulent flow regions by using recent artificial intelligence approaches** 
+of laminar-turbulent flow regions by using recent artificial intelligence approaches**.
 
 <div class="center">
 <figure>
@@ -130,7 +130,7 @@ The UI can be edited or updated via _QT Designer_ if requred in certain circumst
 3. On the opened editing tool, you can load [ui/gui.ui](ui/gui.ui) file to see the drag-drop functionalities of the existing interface
 4. There, you can edit [ui/gui.ui](ui/gui.ui) file and save it again with updated buttons, labels, components, etc.
 5. And finally the new Annotation Window can be compiled with the following command:
-   ```sh
+    ```sh
     $ cd butterfynet/ui
     $ sudo pyuic5 "gui.ui" -o "gui.py"
    ```
