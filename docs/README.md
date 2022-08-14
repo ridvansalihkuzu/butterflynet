@@ -402,7 +402,7 @@ object (flight-wings and vertical stabilizer in our experiments) is exposed to a
 <div class="center">
 <figure>
 <p align="center">
-<img src="9_measurement_setup.png" id="FIG_6" style="width:500px"
+<img src="9_measurement_setup.png" id="FIG_6" style="width:600px"
 alt="Figure 6." />
 
 </p>
