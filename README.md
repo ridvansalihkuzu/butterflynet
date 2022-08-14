@@ -4,14 +4,18 @@
 
    - [1. Main Objective of this Project](#sec_1)
    - [2. Installing and Running the User Interface](#sec_2)
-   
        - [2.a. Installing the User Interface for Automatic Laminar-Turbulent Flow Localization](#sec_2a)
        - [2.b.    Running the User Interface for Automatic Laminar-Turbulent Flow Localization](#sec_2b)
-
    - [3. Editing the User Interface](#sec_3)
-   - [4. Model Training and Evaluation for ButterflyNet and Benchmark U-NETs](#sec_4)
-      - [3.b. Running the User Interface for Automatic Laminar-Turbulent Flow Localization](#sec_3b)
-
+   - [4. Folder Structure for Training and Evaluation](#sec_4)
+   - [5. Preparing the Training Environment](#sec_5)
+   - [6. Supervised Learning for Flow Segmentation](#sec_6)
+   - [7. Self-supervised Learning and Supervised Fine-tuning](#sec_7)
+       - [7.a. Self-supervised Learning](#sec_7a)
+       - [7.b. Supervised Fine-tuning](#sec_7b)
+       - [7.c. Standalone Evaluation on Terminal](#sec_7c)
+    
+    
 
 
 ## 1. <a id="sec_1" /> Main Objective of this Project
@@ -149,14 +153,14 @@ in case of using cascaded networks as similar to our proposed **ButterflyNet**.
 <div class="center">
 <figure>
 <p align="center">
-<img src="docs/3_attention_butterfly_net.png" id="FIG_4" style="width:600px"
-alt="Figure 4." />
+<img src="docs/3_attention_butterfly_net.png" id="FIG_3" style="width:600px"
+alt="Figure 3." />
 
 </p>
 </figure>
 <p align="center">
 <strong style="color: orange; opacity: 0.80;">
-Figure 4: The Adaptive Attention Butterfly Network (ButterflyNet) architecture (top), and the details of the
+Figure 3: The Adaptive Attention Butterfly Network (ButterflyNet) architecture (top), and the details of the
 blocks utilised in the ButterflyNet (bottom) .</strong>
 </p>
 </div>
@@ -200,7 +204,7 @@ In this project, the following benchmark U-Net models have been compared with th
 
       
 
-## 5. Preparing the Training Environment
+## 5. <a id="sec_5" /> Preparing the Training Environment
 For preparing the installation environment, there are two different options:
 1. OPTION: conda environment can be built by installing the dependencies listed in [docker/requirements.txt](docker/requirements.txt)
    ```sh
@@ -223,7 +227,7 @@ For training and evaluation there are multiple options:
 Those procedures will be detailed below:
 
 
-## 6. Supervised Learning for Flow Segmentation
+## 6. <a id="sec_6" /> Supervised Learning for Flow Segmentation
 1. OPTION: [general/main.py](general/main.py) script can be called for training as illustrated in the following command:
    ```sh
    $ cd butterfynet
@@ -268,20 +272,20 @@ Those procedures will be detailed below:
    $ sudo docker run -it --init --rm --shm-size=32772m --gpus '"device=1,2,3,4"' -v "/<YOUR-HOME-DIR>/butterfynet/:/app" tensor_image python -m general.main  --learning-rate 0.000025 --batch-size 64 --num-augment 8 --out-dir modeldir/supervised/ --pair-csv dataset/supervised/fileNames.txt --model-type 6 --data-dir dataset/supervised/image/ --label-dir dataset/supervised/mask/
    ```
   
-## 7. Self-supervised Learning and Supervised Fine-tuning
+## 7. <a id="sec_7" /> Self-supervised Learning and Supervised Fine-tuning
 
 
 <div class="center">
 <figure>
 <p align="center">
-<img src="docs/4_sim_clr.png" id="FIG_5" style="width:600px"
-alt="Figure 5." />
+<img src="docs/4_sim_clr.png" id="FIG_4" style="width:600px"
+alt="Figure 4." />
 
 </p>
 </figure>
 <p align="center">
 <strong style="color: orange; opacity: 0.80;">
-Figure 5: The architecture for self-supervised learning. Note that the augmented views are originated from
+Figure 4: The architecture for self-supervised learning. Note that the augmented views are originated from
 either same or different inputs by random switching .</strong>
 </p>
 </div>
@@ -290,12 +294,12 @@ either same or different inputs by random switching .</strong>
 <br />
 
 The aim of the self-supervised learning is to mitigate the lack of labelled data. In case of sufficient number of labelled data, this step is not necessary. However, when there is an overfitting issue or similars due to the lack of data, this approach benefits from:
-1. either self-supervised learning based on SimCLR approach as illustrated in [Figure 5](#FIG_5),
+1. either self-supervised learning based on SimCLR approach as illustrated in [Figure 4](#FIG_4),
 2. or self-supervised learning based on reconstruction of same image at the output.
 
 After the self-supervised learning on the unlabelled data, fine-tuning is made with the labelled data. The details of these steps are as follows:
 
-### 7.a. Self-supervised Learning
+### 7.a. <a id="sec_7a" /> Self-supervised Learning
 Some reminders for the parameters of self-supervised learning:
 * __DATA_DIR__ and __LABEL_DIR__ should be the same directory, because the data does not have labels
 * __PAIR_CSV__ should be 'None'
@@ -312,7 +316,7 @@ Considering those parameters, a sample call for the self-supervised learning is 
    ```sh
    $ sudo docker run -it --init --rm --shm-size=32772m --gpus '"device=1,2,3,4"' -v "/<YOUR-HOME-DIR>/ir-unet/:/app" tensor_image python -m general.main  --model-type 6 --temperature 0.01 --learning-rate 0.000100 --batch-size 64 --num-epochs 120 --num-augment 1 --self-supervised --out-dir modeldir/unsupervised/ --data-dir dataset/unsupervised/image/ --label-dir dataset/unsupervised/image/
    ```
-### 7.b. Supervised Fine-tuning
+### 7.b. <a id="sec_7b" /> Supervised Fine-tuning
 The fine-tuning followed by self-supervised learning should be done as follows:
 
 1. Set the parameters for standard supervised learning as explained in Section _2.a Supervised Learning_. However, consider the following parameters:
@@ -330,7 +334,7 @@ Thus, a sample call for fine-tuning on the labelled data:
 
    ```
 
-### 7.c. Standalone Evaluation on Terminal
+### 7.c. <a id="sec_7c" /> Standalone Evaluation on Terminal
 Sometimes there may be a need for evaluating the output of single input image, or outputs of images in a directory. In this case, the following command-line call can be useful:
   ```sh
    $ python -m general.evaluate  --input-dir dataset/supervised/image  --label-dir dataset/supervised/mask/ --out-dir dataset/supervised/predicted_supervised --weight-file modeldir/unsupervised/model_best_lr_5e-05_ty_6_ba_64.tf
