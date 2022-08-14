@@ -119,21 +119,25 @@ When those directories are defined, __Start Processing__ button should be clicke
 The UI can be edited or updated via _QT Designer_ if requred in certain circumstances, such as adding new functionalities to the UI. To do this:
 
 1. Install _QT Designer_:
-    ```sh
+     ```sh
     $ pip install PyQt5Designer
-   ```
+    ```
    
+
 2. Run _QT Designer_:
     ```sh
-    $ sudo designer
+   $ sudo designer
    ```
+
 3. On the opened editing tool, you can load [ui/gui.ui](ui/gui.ui) file to see the drag-drop functionalities of the existing interface
 4. There, you can edit [ui/gui.ui](ui/gui.ui) file and save it again with updated buttons, labels, components, etc.
 5. And finally the new Annotation Window can be compiled with the following command:
+   
     ```sh
     $ cd butterfynet/ui
     $ sudo pyuic5 "gui.ui" -o "gui.py"
    ```
+   
 6. After those steps, do not forget to check compatibility of [ui/gui.py](ui/gui.py) with [ui/annotation_window.py](ui/annotation_window.py).
 
 
