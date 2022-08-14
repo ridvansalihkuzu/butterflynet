@@ -1,4 +1,4 @@
-# Adaptive Attention Butterfly Network for Automating Laminar-Turbulent Flow Segmentation
+# ButterflyNet for Automating Laminar-Turbulent Flow Segmentation
 ![annotation_window](1b_ui.gif)
 
 - The project website: [https://ridvansalihkuzu.github.io/butterflynet/](https://ridvansalihkuzu.github.io/butterflynet/)
