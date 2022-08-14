@@ -515,3 +515,43 @@ model complexity.</strong>
 
 &nbsp;
 <br />
+
+
+<div class="center">
+<figure>
+<p align="center">
+<img src="8_benchmark.png" id="FIG_10" style="width:500px"
+alt="Figure 10." />
+
+</p>
+</figure>
+<p align="center">
+<strong style="color: orange; opacity: 0.80;">
+Figure 10: Sørensen-Dice coefficient vs. computational complexity where G-FLOPs stands for the number
+floating-point operations required for a single forward pass, and the size of each ball corresponds to the
+model complexity.</strong>
+</p>
+</div>
+
+&nbsp;
+<br />
+
+
+<div class="center">
+<figure>
+<p align="center">
+<img src="6_results.png" id="FIG_11" style="width:800px"
+alt="Figure 11." />
+
+</p>
+</figure>
+<p align="center">
+<strong style="color: orange; opacity: 0.80;">
+Figure 11: Qualitative comparison of benchmark architectures. In the ground truth, the laminar flow regions
+are denoted as white (positive condition), while the rest is black (negative condition). Similarly, in the
+comparison of architectures, TPs are white, TNs are black, FPs are magenta and FNs are cyan.</strong>
+</p>
+</div>
+
+&nbsp;
+<br />
