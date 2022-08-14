@@ -81,12 +81,12 @@ Figure 2: Annotation Window for Automatic Flow Localization on Thermographic Mea
 In order to prepare this user interface, there are two different options:
 1. OPTION: The following commands can be used directly to run the python file:
    ```sh
-    $ cd butterfynet
+    $ cd butterflynet
     $ python -m ui.annotation_window
    ```
 2. OPTION: An executable file can be generated and utilized independently with the following command:
    ```sh
-   $ cd butterfynet/ui
+   $ cd butterflynet/ui
    $ pyinstaller  --onefile  annotation_window.py --hidden-import 'skimage.filters.rank.core_cy_3d'
    ```
    This command creates an executable file [dist/annotation_window.exe](dist/annotation_window.exe)  which can launch the user interface.
@@ -95,12 +95,12 @@ In order to prepare this user interface, there are two different options:
 
 Annotation window can be launched with the following command directly inside Python:
    ```sh
-    $ cd butterfynet
+    $ cd butterflynet
     $ python -m ui.annotation_window
    ```
 or it can be run via the generated executable: 
    ```sh
-    $ cd butterfynet/ui/dist/
+    $ cd butterflynet/ui/dist/
     $ annotation_window.exe
    ```
 
@@ -127,7 +127,7 @@ The UI can be edited or updated via _QT Designer_ if requred in certain circumst
  4. There, you can edit [ui/gui.ui](ui/gui.ui) file and save it again with updated buttons, labels, components, etc.
  5. And finally the new Annotation Window can be compiled with the following command:
     ```sh
-    $ cd butterfynet/ui
+    $ cd butterflynet/ui
     $ sudo pyuic5 "gui.ui" -o "gui.py"
  6. After those steps, do not forget to check compatibility of [ui/gui.py](ui/gui.py) with [ui/annotation_window.py](ui/annotation_window.py).
 
@@ -204,12 +204,12 @@ For preparing the installation environment, there are two different options:
 
 1. OPTION: conda environment can be built by installing the dependencies listed in [docker/requirements.txt](docker/requirements.txt)
    ```sh
-   $ cd butterfynet/docker
+   $ cd butterflynet/docker
    $ pip install -r requirements.txt
    ```
 2. OPTION: docker environment can be built by running the following commands:
    ```sh
-   $ cd butterfynet/docker
+   $ cd butterflynet/docker
    $ docker build -t tensor_image .
    ```
    
@@ -228,7 +228,7 @@ Those procedures will be detailed below:
 For training the evaluation, there are three different options:
 1. OPTION: [general/main.py](general/main.py) script can be called for training as illustrated in the following command:
     ```sh
-   $ cd butterfynet
+   $ cd butterflynet
    $ python -m general.main  --learning-rate 0.000025 --batch-size 64 --num-augment 8 --out-dir modeldir/supervised/ --pair-csv dataset/supervised/fileNames.txt --model-type 6 --data-dir dataset/supervised/image/ --label-dir dataset/supervised/mask/
    ```
    As seen in the command, there are many arguments to be passed into the _main.py_ script, the definitions of these arguments are as follows:
@@ -251,19 +251,19 @@ For training the evaluation, there are three different options:
    * __SELF_SUPERVISED__: it determines if training mode is supervised or self-supervised; FALSE for standard supervised learning
    * __SELF_RECONSTRUCT__: it determines if self-supervised learning is based on SimCLR or same-input reconstruction; FALSE for standard supervised learning
    * __TEMPERATURE__: it is a self-supervised learning parameter for cost calculation, not used in the standard supervised learning
-2. OPTION: [general/main.py](general/main.py) script can be called in a bash file as can be seen in [_script_train_supervised_general.bat](_script_train_supervised_general.bat):
+2. OPTION: [general/main.py](general/main.py) script can be called in a bash file as can be seen in [script_train_supervised_general.bat](script_train_supervised_general.bat):
    ```sh
-   $ cd butterfynet
-   $ bash _script_train_supervised_general.bat
+   $ cd butterflynet
+   $ bash script_train_supervised_general.bat
    ``` 
    Here, please check if the parameters in the bash file are relevant for your run.
 3. OPTION: If you configured the Docker environment, you can also call the above mentioned scripts inside the Docker as similar to the following example:
    ```sh
-   $ sudo docker run -it --init --rm --shm-size=32772m --gpus '"device=1,2,3,4"' -v "/<YOUR-HOME-DIR>/butterfynet/:/app" tensor_image bash _script_train_supervised_general.bat
+   $ sudo docker run -it --init --rm --shm-size=32772m --gpus '"device=1,2,3,4"' -v "/<YOUR-HOME-DIR>/butterflynet/:/app" tensor_image bash script_train_supervised_general.bat
    ```
    or
    ```sh
-   $ sudo docker run -it --init --rm --shm-size=32772m --gpus '"device=1,2,3,4"' -v "/<YOUR-HOME-DIR>/butterfynet/:/app" tensor_image python -m general.main  --learning-rate 0.000025 --batch-size 64 --num-augment 8 --out-dir modeldir/supervised/ --pair-csv dataset/supervised/fileNames.txt --model-type 6 --data-dir dataset/supervised/image/ --label-dir dataset/supervised/mask/
+   $ sudo docker run -it --init --rm --shm-size=32772m --gpus '"device=1,2,3,4"' -v "/<YOUR-HOME-DIR>/butterflynet/:/app" tensor_image python -m general.main  --learning-rate 0.000025 --batch-size 64 --num-augment 8 --out-dir modeldir/supervised/ --pair-csv dataset/supervised/fileNames.txt --model-type 6 --data-dir dataset/supervised/image/ --label-dir dataset/supervised/mask/
    ```
   
 ## 7. <a id="sec_7" /> Self-supervised Learning and Supervised Fine-tuning
@@ -309,7 +309,7 @@ Considering those parameters, a sample call for the self-supervised learning is 
    ```
    or, in case of Docker usage:
    ```sh
-   $ sudo docker run -it --init --rm --shm-size=32772m --gpus '"device=1,2,3,4"' -v "/<YOUR-HOME-DIR>/butterfynet/:/app" tensor_image python -m general.main  --model-type 6 --temperature 0.01 --learning-rate 0.000100 --batch-size 64 --num-epochs 120 --num-augment 1 --self-supervised --out-dir modeldir/unsupervised/ --data-dir dataset/unsupervised/image/ --label-dir dataset/unsupervised/image/
+   $ sudo docker run -it --init --rm --shm-size=32772m --gpus '"device=1,2,3,4"' -v "/<YOUR-HOME-DIR>/butterflynet/:/app" tensor_image python -m general.main  --model-type 6 --temperature 0.01 --learning-rate 0.000100 --batch-size 64 --num-epochs 120 --num-augment 1 --self-supervised --out-dir modeldir/unsupervised/ --data-dir dataset/unsupervised/image/ --label-dir dataset/unsupervised/image/
    ```
 ### 7.b. <a id="sec_7b" /> Supervised Fine-tuning
 The fine-tuning followed by self-supervised learning should be done as follows:
@@ -325,7 +325,7 @@ Thus, a sample call for fine-tuning on the labelled data:
    ```
    or, in case of Docker usage:
    ```sh
-   $ sudo docker run -it --init --rm --shm-size=32772m --gpus '"device=1,2,3,4"' -v "/<YOUR-HOME-DIR>/butterfynet/:/app" tensor_image python -m general.main  --learning-rate 0.000025 --batch-size 64 --num-augment 8 --out-dir modeldir/supervised/ --pair-csv dataset/supervised/fileNames.txt --model-type 6 --data-dir dataset/supervised/image/ --label-dir dataset/supervised/mask/ --weight-file modeldir/unsupervised/model_best_lr_5e-05_ty_6_ba_64.tf
+   $ sudo docker run -it --init --rm --shm-size=32772m --gpus '"device=1,2,3,4"' -v "/<YOUR-HOME-DIR>/butterflynet/:/app" tensor_image python -m general.main  --learning-rate 0.000025 --batch-size 64 --num-augment 8 --out-dir modeldir/supervised/ --pair-csv dataset/supervised/fileNames.txt --model-type 6 --data-dir dataset/supervised/image/ --label-dir dataset/supervised/mask/ --weight-file modeldir/unsupervised/model_best_lr_5e-05_ty_6_ba_64.tf
 
    ```
 
