@@ -1,6 +1,6 @@
 # Automatic Separation of Laminar-Turbulent Flows on Aircraft Wings and Stabilizers via Adaptive Attention Butterfly Network
 
-![annotation_window](demo_samples/1b_ui.gif)
+
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@
       - [3.b. Running the User Interface for Automatic Laminar-Turbulent Flow Localization](#sec_3b)
 
 
-
+![annotation_window](demo_samples/1b_ui.gif)
 ## 1. <a id="sec_1" /> Main Objective of this Project
 Laminar-Turbulent flow is a fluid dynamics phenomenon that refers to the motion  of particles as they move through a substance. The distinction between laminar and  turbulent flow is eminently important in aerodynamics and hydrodynamics because  the type of flow has a profound impact on how momentum and heat are transferred.
 
