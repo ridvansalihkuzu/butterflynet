@@ -103,7 +103,7 @@ or it can be run via the generated executable:
 Thus, following screen will be opened with those commands:
 
 
-![annotation_window](https://raw.githubusercontent.com/ridvansalihkuzu/butterflynet/main/demo_samples/1_ui.gif)
+![annotation_window](demo_samples/1b_ui.gif)
 
 
 In this interface:
