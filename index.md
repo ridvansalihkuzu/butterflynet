@@ -29,7 +29,7 @@ entirely manual, or semi-automatic.  That is why, **The main objective of this p
 of laminar-turbulent flow regions by using recent artificial intelligence approaches** 
 
 
-![annotation_window](demo_samples/1b_ui.gif)
+
 <div class="center">
 <figure>
 <p align="center">
@@ -49,7 +49,7 @@ ignores some of the side steps which are out of context for this work).</strong>
 <br />
 
 
-
+![annotation_window](demo_samples/1b_ui.gif)
 ## 2. <a id="sec_2" /> Installing and Running the User Interface
 
 
