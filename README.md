@@ -101,7 +101,25 @@ or it can be run via the generated executable:
     $ annotation_window.exe
    ```
 Thus, following screen will be opened with those commands:
-![annotation_window](demo_samples/1_ui.gif)
+
+<div class="center">
+<figure>
+<p align="center">
+<img src="demo_samples/1_ui.gif" id="FIG_3" style="width:600px"
+alt="Figure 3." />
+
+</p>
+</figure>
+<p align="center">
+<strong style="color: orange; opacity: 0.80;">
+Figure 3: Annotation Window.</strong>
+</p>
+</div>
+
+&nbsp;
+<br />
+
+
 
 
 In this interface:
@@ -141,7 +159,7 @@ The UI can be edited or updated via _QT Designer_ if requred in certain circumst
 In this work, Adaptive Attention Butterfly Network (shortly **ButterflyNet**) has been proposed  for the 
 effective separation of laminar flow from the other flow regions. 
 The proposed ButterflyNet falls into the category of *Ensemble U-Nets* with the inspiration from the following studies:
-   - [Attention U-Net](https://arxiv.org/abs/2006.04868) variants which increase the model sensitivity and prediction accuracy with minimal computational overhead,
+   - [Attention U-Net](https://arxiv.org/abs/2006.04868) which increases the model sensitivity and prediction accuracy with minimal computational overhead,
    - [DoubleU-Net](https://arxiv.org/abs/2006.04868) which is useful to eliminate the small artefacts in the segmented areas,
    - and [nnU-Net](https://arxiv.org/abs/1809.10486?) which enables dynamic adaptation of network topologies to different image modalities and geometries, 
 and compensates the issue of having a large number of network parameters and of inefficient throughput time
@@ -151,14 +169,14 @@ in case of using cascaded networks as similar to our proposed **ButterflyNet**.
 <div class="center">
 <figure>
 <p align="center">
-<img src="demo_samples/3_attention_butterfly_net.png" id="FIG_3" style="width:600px"
-alt="Figure 3." />
+<img src="demo_samples/3_attention_butterfly_net.png" id="FIG_4" style="width:600px"
+alt="Figure 4." />
 
 </p>
 </figure>
 <p align="center">
 <strong style="color: orange; opacity: 0.80;">
-Figure 3: The Adaptive Attention Butterfly Network (ButterflyNet) architecture (top), and the details of the
+Figure 4: The Adaptive Attention Butterfly Network (ButterflyNet) architecture (top), and the details of the
 blocks utilised in the ButterflyNet (bottom) .</strong>
 </p>
 </div>
