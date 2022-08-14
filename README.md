@@ -9,7 +9,7 @@
        - [2.b.    Running the User Interface for Automatic Laminar-Turbulent Flow Localization](#sec_2b)
 
    - [3. Editing the User Interface](#sec_3)
-   - [4. Model Training and Evaluation for ButterflyNet and Other Benchmark U-NETs](#sec_4)
+   - [4. Model Training and Evaluation for ButterflyNet and Benchmark U-NETs](#sec_4)
       - [3.b. Running the User Interface for Automatic Laminar-Turbulent Flow Localization](#sec_3b)
 
 
@@ -101,7 +101,7 @@ or it can be run via the generated executable:
     $ annotation_window.exe
    ```
 Thus, following screen will be opened with those commands:
-![ui, annotation_window](demo_samples/1_ui.gif)
+![annotation_window](demo_samples/1_ui.gif)
 
 
 In this interface:
@@ -136,8 +136,71 @@ The UI can be edited or updated via _QT Designer_ if requred in certain circumst
 
 
 
-## 4 <a id="sec_4" /> Model Training and Evaluation for ButterflyNet and Other Benchmark U-NETs
-TODO
+## 4 <a id="sec_4" /> Model Training and Evaluation for ButterflyNet and Benchmark U-NETs
+
+In this work, Adaptive Attention Butterfly Network (shortly **ButterflyNet**) has been proposed  for the 
+effective separation of laminar flow from the other flow regions. 
+The proposed ButterflyNet falls into the category of *Ensemble U-Nets* with the inspiration from the following studies:
+   - [Attention U-Net](https://arxiv.org/abs/2006.04868) variants which increase the model sensitivity and prediction accuracy with minimal computational overhead,
+   - [DoubleU-Net](https://arxiv.org/abs/2006.04868) which is useful to eliminate the small artefacts in the segmented areas,
+   - and [nnU-Net](https://arxiv.org/abs/1809.10486?) which enables dynamic adaptation of network topologies to different image modalities and geometries, 
+and compensates the issue of having a large number of network parameters and of inefficient throughput time
+in case of using cascaded networks as similar to our proposed **ButterflyNet**.  
+
+
+<div class="center">
+<figure>
+<p align="center">
+<img src="demo_samples/3_attention_butterfly_net.png" id="FIG_3" style="width:600px"
+alt="Figure 3." />
+
+</p>
+</figure>
+<p align="center">
+<strong style="color: orange; opacity: 0.80;">
+Figure 3: The Adaptive Attention Butterfly Network (ButterflyNet) architecture (top), and the details of the
+blocks utilised in the ButterflyNet (bottom) .</strong>
+</p>
+</div>
+
+&nbsp;
+<br />
+
+
+In this project, the following benchmark U-Net models have been compared with the proposed ButterflyNet:
+
+- [U-Net](https://arxiv.org/abs/1505.04597)
+- [U2-Net](https://arxiv.org/abs/2005.09007)
+- [R2 U-Net](https://arxiv.org/abs/1802.06955)
+- [U-Net 3+](https://arxiv.org/abs/2004.08790)
+- [Trans U-Net](https://arxiv.org/abs/2102.04306)
+- [DoubleU-Net](https://arxiv.org/abs/2006.04868)
+- [Attention U-Net](https://arxiv.org/abs/1804.03999)
+
+
+
+**Regarding the Experimental Part of the Project:**
+ 
+   - In folder [experimental/](experimental/), you can find:
+      - [main.py](experimental/main.py) as **the main training script** to compare different U-Net architectures,
+      - [model_selector.py](experimental/model_selector.py) for orchestrating the U-Net model selection and initialisation,
+      - [custom_data_generator.py](experimental/custom_data_generator.py) for data reading for training and inference,
+   - In folder **[model_zoo/adaptive_net_family](model_zoo/adaptive_net_family)**, you can find the proposed **ButterflyNet** and its utilities,
+   - In folder **[model_zoo](model_zoo/)**, you can find also some other U-Net architectures applied for benchmark comparison in this work,
+   - The U-Net architectures not found in these folders were inherited directly from the python package [keras-unet-collection](https://github.com/yingkaisha/keras-unet-collection),
+
+**Regarding the Stable Release of the Project:**
+
+  - In folder [general/](general/), you can find:
+      - [main.py](general/main.py) as **the main training script** to compare different U-Net architectures,
+      - [model_zoo.py](general/model_zoo.py) for orchestrating the U-Net model selection and initialisation,
+      - [custom_data_generator.py](general/custom_data_generator.py) for data reading for training and inference,
+      - [custom_losses.py](general/custom_losses.py) for defining some segmentation loss functions, customized for this work, or not included in *[tensorflow/keras](https://www.tensorflow.org/api_docs/python/tf/keras/losses)* framework,
+      - [custom_metrics.py](general/custom_metrics.py) for defining some segmentation performance metrics, customized for this work, or not included in *[tensorflow/keras](https://www.tensorflow.org/api_docs/python/tf/keras/metrics)* framework,
+      - [post_processing.py](general/post_processing.py) for some image processing functions utilized in the user interface,
+      - [utils.py](general/utils.py) for defining general utility fucntions applied during training and inference on U-Nets,
+
+      
 
 ### 4.a. Preparing the Training Environment
 For preparing the installation environment, there are two different options:
@@ -148,12 +211,12 @@ For preparing the installation environment, there are two different options:
    ```
 2. OPTION: docker environment can be built by running the following commands:
    ```sh
-   $ cd ir-unet/docker
+   $ cd butterfynet/docker
    $ docker build -t tensor_image .
    ```
    
 
-For training and evaluation there are multiple options as described below:
+For training and evaluation there are multiple options:
 1. A supervised model for the binary segmentation can be directly trained if there exist sufficient number of input and mask images for training.
 2. If the labelled data is not sufficient for model generalization, causing overfitting or high bias & variance between training and validation:
    1. A self-supervised model can be trained on the unlabelled data, as a first step,
@@ -162,10 +225,10 @@ For training and evaluation there are multiple options as described below:
 Those procedures will be detailed below:
 
 
-## 2.a. Supervised Learning
+#### 4.a.i. Supervised Learning
 1. OPTION: [general/main.py](general/main.py) script can be called for training as illustrated in the following command:
    ```sh
-   $ cd ir-unet
+   $ cd butterfynet
    $ python -m general.main  --learning-rate 0.000025 --batch-size 64 --num-augment 8 --out-dir modeldir/supervised/ --pair-csv dataset/supervised/fileNames.txt --model-type 6 --data-dir dataset/supervised/image/ --label-dir dataset/supervised/mask/
    ```
    As seen in the command, there are many arguments to be passed into the _main.py_ script, the definitions of these arguments are as follows:
@@ -192,19 +255,19 @@ Those procedures will be detailed below:
 
 2. OPTION: [general/main.py](general/main.py) script can be called in a bash file as can be seen in [_script_train_supervised.bat](_script_train_supervised.bat):
    ```sh
-   $ cd ir-unet
-   $ bash _script_train_supervised.bat
+   $ cd butterfynet
+   $ bash _script_train_supervised_general.bat
    ``` 
    Here, please check if the parameters in the bash file are relevant for your run.
 
 
 3. OPTION: If you configured the Docker environment, you can also call the above mentioned scripts inside the Docker as similar to the following example:
    ```sh
-   $ sudo docker run -it --init --rm --shm-size=32772m --gpus '"device=1,2,3,4"' -v "/<YOUR-HOME-DIR>/ir-unet/:/app" tensor_image bash _script_train_supervised.bat
+   $ sudo docker run -it --init --rm --shm-size=32772m --gpus '"device=1,2,3,4"' -v "/<YOUR-HOME-DIR>/butterfynet/:/app" tensor_image bash _script_train_supervised_general.bat
    ```
    or
    ```sh
-   $ sudo docker run -it --init --rm --shm-size=32772m --gpus '"device=1,2,3,4"' -v "/<YOUR-HOME-DIR>/ir-unet/:/app" tensor_image python -m general.main  --learning-rate 0.000025 --batch-size 64 --num-augment 8 --out-dir modeldir/supervised/ --pair-csv dataset/supervised/fileNames.txt --model-type 6 --data-dir dataset/supervised/image/ --label-dir dataset/supervised/mask/
+   $ sudo docker run -it --init --rm --shm-size=32772m --gpus '"device=1,2,3,4"' -v "/<YOUR-HOME-DIR>/butterfynet/:/app" tensor_image python -m general.main  --learning-rate 0.000025 --batch-size 64 --num-augment 8 --out-dir modeldir/supervised/ --pair-csv dataset/supervised/fileNames.txt --model-type 6 --data-dir dataset/supervised/image/ --label-dir dataset/supervised/mask/
    ```
   
 ## 2.b. Self-supervised Learning and Supervised Fine-tuning
