@@ -5,7 +5,7 @@ The project website: [https://ridvansalihkuzu.github.io/butterflynet/](https://r
 
 ## Table of Contents
 
-   - [1. MAIN OBJECTIVE OF THE PROJECT](#sec_1)
+   - [MAIN OBJECTIVE OF THE PROJECT](#sec_1)
    - PART 1: INSTALLATION AND RUNNING
        - [2. Installing and Running the User Interface](#sec_2)
            - [2.a. Installing the User Interface for Automatic Laminar-Turbulent Flow Localization](#sec_2a)
@@ -24,6 +24,9 @@ The project website: [https://ridvansalihkuzu.github.io/butterflynet/](https://r
            - [8.a. Measurement Setup for Observing Flows on the Body of Aircraft](#sec_8a)
            - [8.b. Collected Thermoghraphic Measurement Examples](#sec_8b)
        - [9. Comparing ButterflyNet with Benchmark U-NETs](#sec_9)
+       - [10. Examining Cascaded Structure of ButterflyNet](#sec_10)
+   - [CONCLUSION](#sec_11)
+   - [CITATION](#sec_12)
     
     
 
@@ -418,7 +421,7 @@ IR camera was installed at the port (left hand) and one at the starboard (right 
 side of the aircraft. Both cameras were orientated in such a way that they observed
 a ROI at the vertical tail plane (VTP). As a consequence, IR images could be taken
 during flight simultaneously both from the left- and right-hand side of the VTP, as
-illustrated in [Figure 7](#FIG_7)
+illustrated in [Figure 7](#FIG_7).
 
 <div class="center">
 <figure>
@@ -555,3 +558,62 @@ comparison of architectures, TPs are white, TNs are black, FPs are magenta and F
 
 &nbsp;
 <br />
+
+
+## 10. <a id="sec_10" /> Examining Cascaded Structure of ButterflyNet
+
+Since the ButterflyNet has comprised two cascaded networks,  *WING1* and *WING2* as seen in [Figure 3](#FIG_3), 
+quantitative comparison among the outputs of them has been done to examine if the cascading had a positive impact 
+in flow segmentation.  
+
+The qualitative analysis in [Figure 13](#FIG_13) verifies that masking the input with the output of *WING1* 
+and later feeding it into *WING2* could eliminate some unwanted artefacts when 
+automatically localising the separation boundary of laminar flow from turbulent flow.
+
+
+<div class="center">
+<figure>
+<p align="center">
+<img src="5_results.png" id="FIG_13" style="width:800px"
+alt="Figure 13." />
+
+</p>
+</figure>
+<p align="center">
+<strong style="color: orange; opacity: 0.80;">
+Figure 13: Qualitative comparison of WING1 and WING2 in terms of flow segmentation. Note that WING2
+has generated less artefacts than WING1 where the false positives (FP) are magenta and false negatives
+(FN) are cyan.</strong>
+</p>
+</div>
+
+&nbsp;
+<br />
+
+## 11. <a id="sec_11" /> Conclusion
+
+In this project, we handled the automatic separation of different flow regions over flight-wings and stabilizers using 
+the thermographic flow observations and applying deep learning techniques, because detection of flow distribution has 
+crucial importance for optimising the wing & stabilizer geometry and improving the flight efficiency. Since the 
+laminar-turbulent flow measurements are usually exposed to high noise and variance across different thermographic 
+observations, the existing efforts for the automation of flow localisation in the literature had lack of reproducibility, 
+or they only achieved semi-automation with a strong dependency on human experts for guidance and correction.  
+To overcome such difficulties, we introduced a novel encoder-decoder architecture, namely ButterflyNet, for the 
+automatic segmentation of flow regions. In order to compensate for the lack of manually labelled data caused by 
+the time-consuming nature of analysis on IR thermography samples, we customised a self-supervised strategy and, 
+in this way, we benefited from diverse sets of raw thermographic observations to improve the robustness of flow 
+segmentation. The proposed approach achieved 97.34% pixel accuracy and 91.17% intersection-over-union in
+the automatic separation of laminar flow regions from the remaining regions. 
+
+
+## 12. <a id="sec_12" /> Citation
+
+In order to cite this study:
+```
+@article{butterflynet2022,
+  title={Automatic Separation of Laminar-Turbulent Flows on Aircraft Wings and Stabilizers via Adaptive Attention Butterfly Network},
+  author={Kuzu, R{\i}dvan Salih and Mühlmann, Philipp and Zhu, Xiao Xiang},
+  year={2022},
+}
+```
+
