@@ -230,9 +230,7 @@ Those procedures will be detailed below:
 ## 6. <a id="sec_6" /> Supervised Learning for Flow Segmentation
 
 For training the evaluation, there are three different options:
-
 1. OPTION: [general/main.py](general/main.py) script can be called for training as illustrated in the following command:
-   
     ```sh
    $ cd butterfynet
    $ python -m general.main  --learning-rate 0.000025 --batch-size 64 --num-augment 8 --out-dir modeldir/supervised/ --pair-csv dataset/supervised/fileNames.txt --model-type 6 --data-dir dataset/supervised/image/ --label-dir dataset/supervised/mask/
@@ -257,16 +255,12 @@ For training the evaluation, there are three different options:
    * __SELF_SUPERVISED__: it determines if training mode is supervised or self-supervised; FALSE for standard supervised learning
    * __SELF_RECONSTRUCT__: it determines if self-supervised learning is based on SimCLR or same-input reconstruction; FALSE for standard supervised learning
    * __TEMPERATURE__: it is a self-supervised learning parameter for cost calculation, not used in the standard supervised learning
-   
-
 2. OPTION: [general/main.py](general/main.py) script can be called in a bash file as can be seen in [_script_train_supervised_general.bat](_script_train_supervised_general.bat):
    ```sh
    $ cd butterfynet
    $ bash _script_train_supervised_general.bat
    ``` 
    Here, please check if the parameters in the bash file are relevant for your run.
-
-
 3. OPTION: If you configured the Docker environment, you can also call the above mentioned scripts inside the Docker as similar to the following example:
    ```sh
    $ sudo docker run -it --init --rm --shm-size=32772m --gpus '"device=1,2,3,4"' -v "/<YOUR-HOME-DIR>/butterfynet/:/app" tensor_image bash _script_train_supervised_general.bat
