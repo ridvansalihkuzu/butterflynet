@@ -582,8 +582,7 @@ alt="Figure 13." />
 <p align="center">
 <strong style="color: orange; opacity: 0.80;">
 Figure 13: Qualitative comparison of WING1 and WING2 in terms of flow segmentation. Note that WING2
-has generated less artefacts than WING1 where the false positives (FP) are magenta and false negatives
-(FN) are cyan.</strong>
+has generated less artefacts than WING1 where the false positives are magenta and false negatives are cyan.</strong>
 </p>
 </div>
 
