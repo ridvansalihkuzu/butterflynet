@@ -102,24 +102,8 @@ or it can be run via the generated executable:
    ```
 Thus, following screen will be opened with those commands:
 
-<div class="center">
-<figure>
-<p align="center">
-<img src="demo_samples/1_ui.gif" id="FIG_3" style="width:600px"
-alt="Figure 3." />
 
-</p>
-</figure>
-<p align="center">
-<strong style="color: orange; opacity: 0.80;">
-Figure 3: Annotation Window.</strong>
-</p>
-</div>
-
-&nbsp;
-<br />
-
-
+![annotation_window](https://github.com/ridvansalihkuzu/butterflynet/blob/main/demo_samples/1_ui.gif)
 
 
 In this interface:
@@ -169,14 +153,14 @@ in case of using cascaded networks as similar to our proposed **ButterflyNet**.
 <div class="center">
 <figure>
 <p align="center">
-<img src="demo_samples/3_attention_butterfly_net.png" id="FIG_4" style="width:600px"
-alt="Figure 4." />
+<img src="demo_samples/3_attention_butterfly_net.png" id="FIG_3" style="width:600px"
+alt="Figure 3." />
 
 </p>
 </figure>
 <p align="center">
 <strong style="color: orange; opacity: 0.80;">
-Figure 4: The Adaptive Attention Butterfly Network (ButterflyNet) architecture (top), and the details of the
+Figure 3: The Adaptive Attention Butterfly Network (ButterflyNet) architecture (top), and the details of the
 blocks utilised in the ButterflyNet (bottom) .</strong>
 </p>
 </div>
