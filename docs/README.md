@@ -287,7 +287,7 @@ For training the evaluation, there are three different options:
 <div class="center">
 <figure>
 <p align="center">
-<img src="4_sim_clr.png" id="FIG_4" style="width:600px"
+<img src="4_sim_clr.png" id="FIG_4" style="width:800px"
 alt="Figure 4." />
 
 </p>
