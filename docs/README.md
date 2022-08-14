@@ -5,19 +5,26 @@ The project website: [https://ridvansalihkuzu.github.io/butterflynet/](https://r
 
 ## Table of Contents
 
-   - [1. Main Objective of this Project](#sec_1)
-   - [2. Installing and Running the User Interface](#sec_2)
-       - [2.a. Installing the User Interface for Automatic Laminar-Turbulent Flow Localization](#sec_2a)
-       - [2.b.    Running the User Interface for Automatic Laminar-Turbulent Flow Localization](#sec_2b)
-   - [3. Editing the User Interface](#sec_3)
-   - [4. Folder Structure for Training and Evaluation](#sec_4)
-   - [5. Preparing the Training Environment](#sec_5)
-   - [6. Supervised Learning for Flow Segmentation](#sec_6)
-   - [7. Self-supervised Learning and Supervised Fine-tuning](#sec_7)
-       - [7.a. Self-supervised Learning](#sec_7a)
-       - [7.b. Supervised Fine-tuning](#sec_7b)
-       - [7.c. Standalone Evaluation on Terminal](#sec_7c)     
-   - [8. Further Details About Laminar-turbulent Flow Segmentation](#sec_8)
+   - [1. MAIN OBJECTIVE OF THE PROJECT](#sec_1)
+   - PART 1: INSTALLATION AND RUNNING
+       - [2. Installing and Running the User Interface](#sec_2)
+           - [2.a. Installing the User Interface for Automatic Laminar-Turbulent Flow Localization](#sec_2a)
+           - [2.b.    Running the User Interface for Automatic Laminar-Turbulent Flow Localization](#sec_2b)
+       - [3. Editing the User Interface](#sec_3)
+       - [4. Folder Structure for Training and Evaluation](#sec_4)
+       - [5. Preparing the Training Environment](#sec_5)
+       - [6. Supervised Learning for Flow Segmentation](#sec_6)
+       - [7. Self-supervised Learning and Supervised Fine-tuning](#sec_7)
+           - [7.a. Self-supervised Learning](#sec_7a)
+           - [7.b. Supervised Fine-tuning](#sec_7b)
+           - [7.c. Standalone Evaluation on Terminal](#sec_7c)
+         
+   - PART 2: FURTHER DETAILS ABOUT THE CONDUCTED EXPERIMENTS
+       - [8. About Laminar-Turbulent Flow Segmentation](#sec_8)
+           - [8.a. Measurement Setup for Observing Flows on the Body of Aircraft](#sec_8a)
+           - [8.b. Collected Thermoghraphic Measurement Examples](#sec_8b)
+       - [9. Comparing ButterflyNet with Benchmark U-NETs](#sec_9)
+    
     
 
 
@@ -344,7 +351,7 @@ Here, the parameters have the following roles:
 * __WEIGHT_FILE__: a weights file for the model initialization with pretrained weights; it should NOT be _--weights 'None'_ 
 * __SELF_SUPERVISED__: it determines if evaluation mode is for supervised or self-supervised learning; FALSE for supervised learning
 
-## 8. <a id="sec_8" /> Further Details About Laminar-Turbulent Flow Segmentation
+## 8. <a id="sec_8" /> About Laminar-Turbulent Flow Segmentation
 
 Laminar-Turbulent flow is a fluid dynamics phenomenon that refers to the motion of particles as they move through a substance.
 The distinction between laminar and turbulent flow is eminently important in aerodynamics and hydrodynamics because the type 
@@ -371,7 +378,7 @@ Figure 5: Airflow over a wing exhibiting transition from laminar to turbulent.</
 <br />
 
 
-### 8.a. <a id="sec_8a" /> Thermoghraphic Measurement for Observing Flows on the Body of Aircraft
+### 8.a. <a id="sec_8a" /> Measurement Setup for Observing Flows on the Body of Aircraft
 
 Measurement setups may differ from use case  to use case. However, at least three things are shared between all setups: i) a surface,
 ii) an airflow to which the surface is exposed to, and iii) at minimum, one IR camera  observing the surface.
@@ -424,6 +431,85 @@ alt="Figure 7." />
 <p align="center">
 <strong style="color: orange; opacity: 0.80;">
 Figure 7: AFLoNext, digital mockup field of view (FoV) study using 20° lens.</strong>
+</p>
+</div>
+
+&nbsp;
+<br />
+
+
+### 8.b. <a id="sec_8b" /> Collected Thermoghraphic Measurement Examples
+
+As shown in [Figure 8](#FIG_8), some thermoghraphic measurement samples contain scars, shadows, salt & pepper
+noises and contrast burst regions, demonstrating that realistic laminar-turbulent flow  observation scenarios 
+are subject to high noise. Besides, a laminar flow area may  occur brighter or darker as compared to the regions 
+in a turbulent flow. Due to some effect (e.g. shadowing the sun) it is even possible that, in one part of the image, the
+laminar flow area appears darker, and in another part, it appears brighter than the  turbulent flow area. 
+
+<div class="center">
+<figure>
+<p align="center">
+<img src="11_labelled_measurements.png" id="FIG_8" style="width:500px"
+alt="Figure 8." />
+
+</p>
+</figure>
+<p align="center">
+<strong style="color: orange; opacity: 0.80;">
+Figure 8: Thermographic measurement examples from wind tunnel and flight test experiments: i. top and
+bottom row: wind tunnel ii. center row: vertical stabilizer from AFLoNext Project.
+Note that the red flow-separation lines are ground-truth boundaries upon the measurements.</strong>
+</p>
+</div>
+
+&nbsp;
+<br />
+
+
+## 9. <a id="sec_9" /> Comparing ButterflyNet with Benchmark U-NETs
+
+In order to demonstrate the effectiveness of our proposed flow segmentation architecture, the quantitative and qualitative
+comparisons among the benchmark architectures have been conducted after running the tests 20 times for each architecture. 
+As summarised in  [Figure 9](#FIG_9), ButterflyNet has excelled all the segmentation architectures in all evaluation
+metrics.
+
+
+<div class="center">
+<figure>
+<p align="center">
+<img src="7_benchmark.png" id="FIG_9" style="width:500px"
+alt="Figure 9." />
+
+</p>
+</figure>
+<p align="center">
+<strong style="color: orange; opacity: 0.80;">
+Figure 9: Kernel density estimations drawn by the segmentation scores taken from each test run in terms of
+the evaluation metrics PA, IoU and SDC.</strong>
+</p>
+</div>
+
+&nbsp;
+<br />
+
+Besides, as shown in [Figure 10](#FIG_10), the ButterflyNet is computationally less expensive
+than 4 of the benchmarks with total number of 15:11 Giga-Flops, and more memory
+efficient than 3 of the benchmarks with 24:64 million parameters.
+
+
+<div class="center">
+<figure>
+<p align="center">
+<img src="8_benchmark.png" id="FIG_10" style="width:500px"
+alt="Figure 10." />
+
+</p>
+</figure>
+<p align="center">
+<strong style="color: orange; opacity: 0.80;">
+Figure 10: Sørensen-Dice coefficient vs. computational complexity where G-FLOPs stands for the number
+floating-point operations required for a single forward pass, and the size of each ball corresponds to the
+model complexity.</strong>
 </p>
 </div>
 
