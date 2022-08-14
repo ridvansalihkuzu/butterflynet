@@ -79,7 +79,6 @@ Figure 2: Annotation Window for Automatic Flow Localization on Thermographic Mea
 
 
 In order to prepare this user interface, there are two different options:
-
 1. OPTION: The following commands can be used directly to run the python file:
    ```sh
     $ cd butterfynet
@@ -206,6 +205,7 @@ In this project, the following benchmark U-Net models have been compared with th
 
 ## 5. <a id="sec_5" /> Preparing the Training Environment
 For preparing the installation environment, there are two different options:
+
 1. OPTION: conda environment can be built by installing the dependencies listed in [docker/requirements.txt](docker/requirements.txt)
    ```sh
    $ cd butterfynet/docker
