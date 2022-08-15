@@ -55,7 +55,7 @@ alt="Figure 1." />
 </p>
 </figure>
 <p align="center">
-<strong style="color: orange; opacity: 0.80;">
+<strong style="color: red; opacity: 0.80;">
 Figure 1: High-level workflow for building new wings, stabilizers or blades (Please note that the workflow
 ignores some of the side steps which are out of context for this work).</strong>
 </p>
@@ -83,7 +83,7 @@ alt="Figure 2." />
 </p>
 </figure>
 <p align="center">
-<strong style="color: orange; opacity: 0.80;">
+<strong style="color: red; opacity: 0.80;">
 Figure 2: Annotation Window for Automatic Flow Localization on Thermographic Measurements.</strong>
 </p>
 </div>
@@ -169,7 +169,7 @@ alt="Figure 3." />
 </p>
 </figure>
 <p align="center">
-<strong style="color: orange; opacity: 0.80;">
+<strong style="color: red; opacity: 0.80;">
 Figure 3: The Adaptive Attention Butterfly Network (ButterflyNet) architecture (top), and the details of the
 blocks utilised in the ButterflyNet (bottom) .</strong>
 </p>
@@ -293,7 +293,7 @@ alt="Figure 4." />
 </p>
 </figure>
 <p align="center">
-<strong style="color: orange; opacity: 0.80;">
+<strong style="color: red; opacity: 0.80;">
 Figure 4: The architecture for self-supervised learning. Note that the augmented views are originated from
 either same or different inputs by random switching .</strong>
 </p>
@@ -374,7 +374,7 @@ alt="Figure 5." />
 </p>
 </figure>
 <p align="center">
-<strong style="color: orange; opacity: 0.80;">
+<strong style="color: red; opacity: 0.80;">
 Figure 5: Airflow over a wing exhibiting transition from laminar to turbulent.</strong>
 </p>
 </div>
@@ -408,7 +408,7 @@ alt="Figure 6." />
 </p>
 </figure>
 <p align="center">
-<strong style="color: orange; opacity: 0.80;">
+<strong style="color: red; opacity: 0.80;">
 Figure 6: A simplified laminar-turbulent flow measurement setup.</strong>
 </p>
 </div>
@@ -434,7 +434,7 @@ alt="Figure 7." />
 </p>
 </figure>
 <p align="center">
-<strong style="color: orange; opacity: 0.80;">
+<strong style="color: red; opacity: 0.80;">
 Figure 7: AFLoNext, digital mockup field of view (FoV) study using 20° lens.</strong>
 </p>
 </div>
@@ -460,7 +460,7 @@ alt="Figure 8." />
 </p>
 </figure>
 <p align="center">
-<strong style="color: orange; opacity: 0.80;">
+<strong style="color: red; opacity: 0.80;">
 Figure 8: Thermographic measurement examples from wind tunnel and flight test experiments: i. top and
 bottom row: wind tunnel ii. center row: vertical stabilizer from AFLoNext Project.
 Note that the red flow-separation lines are ground-truth boundaries upon the measurements.</strong>
@@ -488,7 +488,7 @@ alt="Figure 9." />
 </p>
 </figure>
 <p align="center">
-<strong style="color: orange; opacity: 0.80;">
+<strong style="color: red; opacity: 0.80;">
 Figure 9: Kernel density estimations drawn by the segmentation scores taken from each test run in terms of
 the evaluation metrics PA, IoU and SDC.</strong>
 </p>
@@ -511,7 +511,7 @@ alt="Figure 10." />
 </p>
 </figure>
 <p align="center">
-<strong style="color: orange; opacity: 0.80;">
+<strong style="color: red; opacity: 0.80;">
 Figure 10: Sørensen-Dice coefficient vs. computational complexity where G-FLOPs stands for the number
 floating-point operations required for a single forward pass, and the size of each ball corresponds to the
 model complexity.</strong>
@@ -533,7 +533,7 @@ alt="Figure 11." />
 </p>
 </figure>
 <p align="center">
-<strong style="color: orange; opacity: 0.80;">
+<strong style="color: red; opacity: 0.80;">
 Figure 11: Qualitative comparison of benchmark architectures. In the ground truth, the laminar flow regions
 are denoted as white (positive condition), while the rest is black (negative condition). Similarly, in the
 comparison of architectures, TPs are white, TNs are black, FPs are magenta and FNs are cyan.</strong>
@@ -564,7 +564,7 @@ alt="Figure 12." />
 </p>
 </figure>
 <p align="center">
-<strong style="color: orange; opacity: 0.80;">
+<strong style="color: red; opacity: 0.80;">
 Figure 12: Qualitative comparison of WING1 and WING2 in terms of flow segmentation. Note that WING2
 has generated less artefacts than WING1 where the false positives are magenta and false negatives are cyan.</strong>
 </p>
