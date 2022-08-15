@@ -34,9 +34,14 @@
 
 
 ## 1. <a id="sec_1" /> Main Objective of this Project
-Laminar-Turbulent flow is a fluid dynamics phenomenon that refers to the motion  of particles as they move through a substance. The distinction between laminar and  turbulent flow is eminently important in aerodynamics and hydrodynamics because  the type of flow has a profound impact on how momentum and heat are transferred.
 
-Specifically, detection of laminar and turbulent flow regions and transition locations in between are of crucial interest in a range of aviational applications, since
+Laminar-Turbulent flow is a fluid dynamics phenomenon that refers to the motion  
+of particles as they move through a substance. The distinction between laminar and  
+turbulent flow is eminently important in aerodynamics and hydrodynamics because  the 
+type of flow has a profound impact on how momentum and heat are transferred.
+
+Specifically, detection of laminar and turbulent flow regions and transition locations in 
+between are of crucial interest in a range of aviational applications, since
 the achievement of a fuel-efficient wing, airfoil or rotor blade design and reducing
 the instability caused by drag forces are strongly related with the way of handling
 laminar and turbulent flow exposed by the wing and blade surfaces. 
@@ -71,7 +76,9 @@ ignores some of the side steps which are out of context for this work).</strong>
 
 ### 2.a. <a id="sec_2a" /> Installing the User Interface for Automatic Laminar-Turbulent Flow Localization
 
-As you can see below, there is a user interface called _Annotation Window_ which can be used to handle checking the quality of the predictions for flow-localization and to make some postprocessing for removing artifacts or holes in the segmented thermographic measurement:
+As you can see below, there is a user interface called _Annotation Window_ which can be used to handle 
+checking the quality of the predictions for flow-localization and to make some postprocessing for removing 
+artifacts or holes in the segmented thermographic measurement:
 
 
 <div class="center">
