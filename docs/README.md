@@ -111,7 +111,8 @@ In order to prepare this user interface, there are two different options:
    $ cd butterflynet/ui
    $ pyinstaller  --onefile  annotation_window.py --hidden-import 'skimage.filters.rank.core_cy_3d'
    ```
-   This command creates an executable file [dist/annotation_window.exe](../dist/annotation_window.exe)  which can launch the user interface.
+   This command creates an executable file [dist/annotation_window.exe](../dist/annotation_window.exe)
+   which can launch the user interface.
 
 ### 2.b. <a id="sec_2b" /> Running the User Interface for Automatic Laminar-Turbulent Flow Localization
 
@@ -145,17 +146,17 @@ The UI can be edited or updated via _QT Designer_ if requred in certain circumst
  2. Run _QT Designer_:
      ```sh 
      $ sudo designer
- 3. On the opened editing tool, you can load [ui/gui.ui](https://github.com/ridvansalihkuzu/butterflynet/tree/main/ui/gui.ui) file to see the drag-drop functionalities of the existing interface.
+ 3. On the opened editing tool, you can load [ui/gui.ui](https://github.com/ridvansalihkuzu/butterflynet/tree/main/ui/gui.ui) 
+    file to see the drag-drop functionalities of the existing interface.
  4. There, you can edit [ui/gui.ui](https://github.com/ridvansalihkuzu/butterflynet/tree/main/ui/gui.ui) file and save it again with updated buttons, labels, components, etc.
  5. And finally the new Annotation Window can be compiled with the following command:
     ```sh
     $ cd butterflynet/ui
     $ sudo pyuic5 "gui.ui" -o "gui.py"
- 6. After those steps, do not forget to check compatibility of [ui/gui.py](https://github.com/ridvansalihkuzu/butterflynet/tree/main/ui/gui.py) with [ui/annotation_window.py](https://github.com/ridvansalihkuzu/butterflynet/tree/main/ui/annotation_window.py).
-
-
+ 6. After those steps, do not forget to check compatibility of [ui/gui.py](https://github.com/ridvansalihkuzu/butterflynet/tree/main/ui/gui.py) with [ui/annotation_window.py](https://github.com/ridvansalihkuzu/butterflynet/tree/main/ui/annotation_window.py). 
 
 ## 4. <a id="sec_4" /> Folder Structure for Training and Evaluation
+
 
 In this work, Adaptive Attention Butterfly Network (shortly **ButterflyNet**) has been proposed for the 
 effective separation of laminar flow from the other flow regions. 
