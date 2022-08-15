@@ -157,7 +157,6 @@ The UI can be edited or updated via _QT Designer_ if requred in certain circumst
 
 ## 4. <a id="sec_4" /> Folder Structure for Training and Evaluation
 
-
 In this work, Adaptive Attention Butterfly Network (shortly **ButterflyNet**) has been proposed for the 
 effective separation of laminar flow from the other flow regions. 
 The proposed ButterflyNet falls into the category of *Ensemble U-Nets* with the inspiration from the following studies:
