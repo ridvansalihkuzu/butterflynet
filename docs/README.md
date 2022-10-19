@@ -1,4 +1,4 @@
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/automatic-separation-of-laminar-turbulent/laminar-turbulent-flow-localisation-on)](https://paperswithcode.com/sota/laminar-turbulent-flow-localisation-on?p=automatic-separation-of-laminar-turbulent)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/automatic-separation-of-laminar-turbulent/laminar-turbulent-flow-localisation-on-1)](https://paperswithcode.com/sota/laminar-turbulent-flow-localisation-on-1?p=automatic-separation-of-laminar-turbulent)
 # ButterflyNet for Automating Laminar-Turbulent Flow Segmentation
 ![annotation_window](1b_ui.gif)
 
