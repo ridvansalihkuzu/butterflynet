@@ -604,6 +604,7 @@ In order to cite this study:
 @article{butterflynet2022,
   title={Automatic Separation of Laminar-Turbulent Flows on Aircraft Wings and Stabilizers via Adaptive Attention Butterfly Network},
   author={Kuzu, R{\i}dvan Salih and Mühlmann, Philipp and Zhu, Xiao Xiang},
+  journal={Experiments in Fluids},
   year={2022},
 }
 ```
