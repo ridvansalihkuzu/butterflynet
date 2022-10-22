@@ -2,9 +2,12 @@
 # ButterflyNet for Automating Laminar-Turbulent Flow Segmentation
 ![annotation_window](1b_ui.gif)
 
+- The paper: [https://link.springer.com/article/10.1007/s00348-022-03516-4](https://link.springer.com/article/10.1007/s00348-022-03516-4)
+
 - The project website: [https://ridvansalihkuzu.github.io/butterflynet/](https://ridvansalihkuzu.github.io/butterflynet/)
 
 - The project codebase: [https://github.com/ridvansalihkuzu/butterflynet](https://github.com/ridvansalihkuzu/butterflynet)
+
 
 ## Table of Contents
 
@@ -605,7 +608,11 @@ In order to cite this study:
   title={Automatic Separation of Laminar-Turbulent Flows on Aircraft Wings and Stabilizers via Adaptive Attention Butterfly Network},
   author={Kuzu, R{\i}dvan Salih and Mühlmann, Philipp and Zhu, Xiao Xiang},
   journal={Experiments in Fluids},
+  volume={63},
+  number={10},
+  pages={1--22},
   year={2022},
+  publisher={Springer}
 }
 ```
 
